@@ -437,6 +437,30 @@ describe("Baloncesto.buscar: ", function () {
         })
 })
 
+describe("Baloncesto.baloncesto: ", function () {
+    it("muestra todas las funcionalidades",
+        function () {
+            Baloncesto.baloncesto()
+            expect(elementoTitulo.innerHTML).toBe("Funcionalidades Baloncesto")
+            expect(elementoContenido.innerHTML.includes("Home")).toBeTrue() 
+            expect(elementoContenido.innerHTML.includes("Acerca de")).toBeTrue() 
+            expect(elementoContenido.innerHTML.includes("Datos Jugador")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Nombres Jugadores")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Nombres Ordenados")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Datos Jugadores")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Jugador Ant y Sig")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Buscar Nombre")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Modificar Nombre")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Modificar Jugador")).toBeTrue()
+            expect(elementoContenido.innerHTML.includes("Buscar")).toBeTrue()
+        })
+        it("no muestra como contenido Buscar jugadores cuyo nombre tiene",
+        function () {
+            Baloncesto.buscar()
+            expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyo nombre tiene")).toBeFalse()
+        })
+})
+
 
 /*
 IMPORTANTE

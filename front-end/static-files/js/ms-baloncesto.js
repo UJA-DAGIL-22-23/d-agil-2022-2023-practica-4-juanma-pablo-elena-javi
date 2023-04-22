@@ -624,3 +624,37 @@ Baloncesto.buscar = function () {
     Frontend.Article.actualizar("Buscar jugadores por campos", msj)
 }
 
+/**
+ * Función para mostrar en pantalla todas las funciones del baloncesto
+ */
+
+Baloncesto.baloncesto = function () {
+
+    let msj = `<div> 
+    <a href="javascript:Baloncesto.procesarHome()" class="opcion-principal"
+        title="Llama a la ruta / del MS Baloncesto">Home</a>
+    <a href="javascript:Baloncesto.procesarAcercaDe()" class="opcion-principal"
+        title="Llama a la ruta /acercade del MS Baloncesto">Acerca de</a>
+    <a href="javascript:Baloncesto.mostrarJugador('358542021274632397')" class="opcion-principal"
+        title="Muestra todos los datos de un jugador">Datos Jugador</a>
+    <a href="javascript:Baloncesto.mostrarNombresJugadores()" class="opcion-principal"
+        title="Muestra los nombres de todos los jugadores">Nombres Jugadores</a>
+    <a href="javascript:Baloncesto.mostrarNombresOrdenados()" class="opcion-principal"
+        title="Muestra los nombres de los jugadores ordenados alfabéticamente">Nombres Ordenados</a>
+    <a href="javascript:Baloncesto.mostrarDatosJugadores()" class="opcion-principal"
+        title="Muestra todos los datos de los jugadores">Datos Jugadores</a>
+    <a href="javascript:Baloncesto.siguienteAnterior('358542344714191052')" class="opcion-principal"
+        title="Muestra todos los datos de un jugador y el siguiente y anterior">Jugador Ant y Sig</a>
+    <a href="javascript:Baloncesto.buscarNombre()" class="opcion-principal"
+        title="Muestra todos los datos de los jugadores cuyo nombre contenga el texto introducido">Buscar Nombre</a>
+    <a href="javascript:Baloncesto.modificarNombreJugador('358542586888061132')" class="opcion-principal"
+        title="Modificar nombre de un determinado jugador">Modificar Nombre</a>
+    <a href="javascript:Baloncesto.modificarJugador('358542112682148045')" class="opcion-principal"
+        title="Modificar datos de un determinado jugador">Modificar Jugador</a>
+    <a href="javascript:Baloncesto.buscar()" class="opcion-principal"
+        title="Muestra todos los datos de los jugadores que cumplan con los criterios de búsqueda">Buscar</a>
+    </div>`;
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Funcionalidades Baloncesto", msj)
+}
