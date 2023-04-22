@@ -13,26 +13,26 @@ const app = require('../server');
 
 describe('API Gateway: rutas estáticas', () => {
   describe('Rutas estáticas de MS Plantilla', () => {
-    it('Devuelve MS Plantilla Home Page', (done) => {
+    it('Devuelve MS Baloncesto Home Page', (done) => {
       supertest(app)
         .get('/plantilla/')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
           assert(res.body.hasOwnProperty('mensaje'));
-          assert(res.body.mensaje === "Microservicio MS Plantilla: home");
+          assert(res.body.mensaje === "Microservicio MS Baloncesto: home");
 
         })
         .end((error) => { error ? done.fail(error) : done() })
     });
-    it('Devuelve MS Plantilla Acerca De', (done) => {
+    it('Devuelve MS Baloncesto Acerca De', (done) => {
       supertest(app)
         .get('/plantilla/acercade')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
           assert(res.body.hasOwnProperty('mensaje'));
-          assert(res.body.mensaje === "Microservicio MS Plantilla: acerca de");
+          assert(res.body.mensaje === "Microservicio MS Baloncesto: acerca de");
 
         })
         .end((error) => { error ? done.fail(error) : done() })
