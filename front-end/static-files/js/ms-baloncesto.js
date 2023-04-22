@@ -1,6 +1,6 @@
 /**
- * @file Plantilla.js
- * @description Funciones para el procesamiento de la info enviada por el MS Plantilla
+ * @file Baloncesto.js
+ * @description Funciones para el procesamiento de la info enviada por el MS Baloncesto
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -8,10 +8,10 @@
 "use strict";
 
 /// Creo el espacio de nombres
-let Plantilla = {};
+let Baloncesto = {};
 
-// Plantilla de datosDescargados vacíos
-Plantilla.datosDescargadosNulos = {
+// Baloncesto de datosDescargados vacíos
+Baloncesto.datosDescargadosNulos = {
     mensaje: "Datos Descargados No válidos",
     autor: "",
     email: "",
@@ -19,14 +19,14 @@ Plantilla.datosDescargadosNulos = {
 }
 
 /**
- * Función que descarga la info MS Plantilla al llamar a una de sus rutas
+ * Función que descarga la info MS Baloncesto al llamar a una de sus rutas
  * @param {string} ruta Ruta a descargar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.descargarRuta = async function (ruta, callBackFn) {
+Baloncesto.descargarRuta = async function (ruta, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio Plantilla
+    // Intento conectar con el microservicio Baloncesto
     try {
         const url = Frontend.API_GATEWAY + ruta
         response = await fetch(url)
@@ -47,9 +47,9 @@ Plantilla.descargarRuta = async function (ruta, callBackFn) {
 
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "home" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "home" de MS Baloncesto
  */
-Plantilla.mostrarHome = function (datosDescargados) {
+Baloncesto.mostrarHome = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -63,9 +63,9 @@ Plantilla.mostrarHome = function (datosDescargados) {
 }
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Baloncesto
  */
-Plantilla.mostrarAcercaDe = function (datosDescargados) {
+Baloncesto.mostrarAcercaDe = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -95,15 +95,15 @@ Plantilla.mostrarAcercaDe = function (datosDescargados) {
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
-Plantilla.procesarHome = function () {
-    this.descargarRuta("/plantilla/", this.mostrarHome);
+Baloncesto.procesarHome = function () {
+    this.descargarRuta("/baloncesto/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
-Plantilla.procesarAcercaDe = function () {
-    this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+Baloncesto.procesarAcercaDe = function () {
+    this.descargarRuta("/baloncesto/acercade", this.mostrarAcercaDe);
 }
 
 /**
@@ -112,9 +112,9 @@ Plantilla.procesarAcercaDe = function () {
  * @param {String} idJugador Identificador de la persona a mostrar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.recuperaJugador = async function (idJugador, callBackFn) {
+Baloncesto.recuperaJugador = async function (idJugador, callBackFn) {
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getPorId/" + idJugador
+        const url = Frontend.API_GATEWAY + "/baloncesto/getPorId/" + idJugador
         const response = await fetch(url);
         if (response) {
             const persona = await response.json()
@@ -128,10 +128,10 @@ Plantilla.recuperaJugador = async function (idJugador, callBackFn) {
 
 /**
  * Función para mostrar en pantalla los detalles de un juagador que se ha recuperado de la BBDD por su id
- * @param {Plantilla} jugador Datos del jugador a mostrar
+ * @param {Baloncesto} jugador Datos del jugador a mostrar
  */
 
-Plantilla.imprimeJugador = function (jugador) {
+Baloncesto.imprimeJugador = function (jugador) {
     
     jugador=jugador.data
     let msj = `<div> 
@@ -154,7 +154,7 @@ Plantilla.imprimeJugador = function (jugador) {
  * Función principal para mostrar los datos de un jugador desde el MS y, posteriormente, imprimirla.
  * @param {String} idJugador Identificador del jugador a mostrar
  */
-Plantilla.mostrarJugador = function (idJugador) {
+Baloncesto.mostrarJugador = function (idJugador) {
     this.recuperaJugador(idJugador, this.imprimeJugador);
 }
 
@@ -163,12 +163,12 @@ Plantilla.mostrarJugador = function (idJugador) {
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
 
-Plantilla.recupera = async function (callBackFn) {
+Baloncesto.recupera = async function (callBackFn) {
     let response = null
 
     // Intento conectar con el microservicio personas
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getTodas"
+        const url = Frontend.API_GATEWAY + "/baloncesto/getTodas"
         response = await fetch(url)
 
     } catch (error) {
@@ -188,8 +188,8 @@ Plantilla.recupera = async function (callBackFn) {
 /**
  * Función principal para mostrar los nombres de todos los jugadores desde el MS y, posteriormente, imprimirla.
  */
-Plantilla.mostrarNombresJugadores = function () {
-    Plantilla.recupera(Plantilla.imprimeNombres);
+Baloncesto.mostrarNombresJugadores = function () {
+    Baloncesto.recupera(Baloncesto.imprimeNombres);
 }
 
 /**
@@ -197,7 +197,7 @@ Plantilla.mostrarNombresJugadores = function () {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.imprimeNombres = function (vector) {
+Baloncesto.imprimeNombres = function (vector) {
 
     let msj = `<div>`
     vector.forEach(e => msj += `<p> ${e.data.nombre} </p>`)
@@ -210,8 +210,8 @@ Plantilla.imprimeNombres = function (vector) {
 /**
  * Función principal para mostrar los nombres de todos los jugadores odenados alfabéticamente desde el MS y, posteriormente, imprimirla.
  */
-Plantilla.mostrarNombresOrdenados = function () {
-    Plantilla.recupera(Plantilla.imprimeNombresOrdenados);
+Baloncesto.mostrarNombresOrdenados = function () {
+    Baloncesto.recupera(Baloncesto.imprimeNombresOrdenados);
 }
 
 /**
@@ -219,7 +219,7 @@ Plantilla.mostrarNombresOrdenados = function () {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.imprimeNombresOrdenados = function (vector) {
+Baloncesto.imprimeNombresOrdenados = function (vector) {
 
     vector.sort((a, b) => a.data.nombre.localeCompare(b.data.nombre)); 
 
@@ -234,8 +234,8 @@ Plantilla.imprimeNombresOrdenados = function (vector) {
 /**
  * Función principal para mostrar los datos de todos los jugadores desde el MS y, posteriormente, imprimirla.
  */
-Plantilla.mostrarDatosJugadores = function () {
-    Plantilla.recupera(Plantilla.imprimeDatos);
+Baloncesto.mostrarDatosJugadores = function () {
+    Baloncesto.recupera(Baloncesto.imprimeDatos);
 }
 
 /**
@@ -243,7 +243,7 @@ Plantilla.mostrarDatosJugadores = function () {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.imprimeDatos = function (vector) {
+Baloncesto.imprimeDatos = function (vector) {
  
     let msj = `<div>`
     vector.forEach(e => msj += ` <h1> Jugador </h1>
@@ -266,16 +266,16 @@ Plantilla.imprimeDatos = function (vector) {
  * Función principal para mostrar los datos de un jugador, además del siguiente o anterior.
  * @param {String} idJugador Identificador del jugador a mostrar
  */
-Plantilla.siguienteAnterior = function (idJugador) {
+Baloncesto.siguienteAnterior = function (idJugador) {
     this.recuperaJugador(idJugador, this.imprimeJugadorSigAnt);
 }
 
 /**
  * Función para mostrar en pantalla los detalles de un juagador, además del siguiente o anterior.
- * @param {Plantilla} jugador Datos del jugador a mostrar
+ * @param {Baloncesto} jugador Datos del jugador a mostrar
  */
 
-Plantilla.imprimeJugadorSigAnt = function (jugador) {
+Baloncesto.imprimeJugadorSigAnt = function (jugador) {
     
     jugador=jugador.data
     let msj = `<div> 
@@ -288,9 +288,9 @@ Plantilla.imprimeJugadorSigAnt = function (jugador) {
     <p> Nombre del equipo del jugador: ${jugador.nombre_equipo} </p>
     <p> Categoría del jugador: ${jugador.categoria} </p>
     <p> Altura del jugador: ${jugador.altura} </p>
-    <a href="javascript:Plantilla.mostrarJugador('358542277269782732')" class="opcion-principal"
+    <a href="javascript:Baloncesto.mostrarJugador('358542277269782732')" class="opcion-principal"
         title="Muestra todos los datos de un jugador">Jugador anterior</a>
-    <a href="javascript:Plantilla.mostrarJugador('358542397918937292')" class="opcion-principal"
+    <a href="javascript:Baloncesto.mostrarJugador('358542397918937292')" class="opcion-principal"
         title="Muestra todos los datos de un jugador">Jugador siguiente</a>
     </div>`;
 
@@ -304,7 +304,7 @@ Plantilla.imprimeJugadorSigAnt = function (jugador) {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.incluyeNombre = function (vector, texto) {
+Baloncesto.incluyeNombre = function (vector, texto) {
     // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.
     // Si no, uso el valor que se ha pasado por parámetro.
     if( typeof document.getElementById("id_texto") != "undefined" && document.getElementById("id_texto")!=null ) texto=document.getElementById("id_texto").value
@@ -338,11 +338,11 @@ Plantilla.incluyeNombre = function (vector, texto) {
  * Función para introducir el texto correspondiente para buscar los jugadores cuyo nombre contienen dicho texto.
  */
 
-Plantilla.buscarNombre = function () {
+Baloncesto.buscarNombre = function () {
     let msj = `<div>
     <p> Buscar jugadores cuyo nombre incluye: </p>
     <input type="text" id="id_texto">
-    <button onclick="javascript:Plantilla.recupera(Plantilla.incluyeNombre);">Buscar</button>
+    <button onclick="javascript:Baloncesto.recupera(Baloncesto.incluyeNombre);">Buscar</button>
     </div>`;
 
     Frontend.Article.actualizar("Buscar jugadores por nombre", msj)
@@ -352,15 +352,15 @@ Plantilla.buscarNombre = function () {
  * Función principal para modificar el nombre de un jugador
  * @param {String} idJugador Identificador del jugador a modificar
  */
-Plantilla.modificarNombreJugador = function (idJugador) {
+Baloncesto.modificarNombreJugador = function (idJugador) {
     this.recuperaJugador(idJugador, this.modificarNombre);
 }
 
 /**
  * Función principal para modificar el nombre de un jugador
- * @param {Plantilla} jugador Datos del jugador a modificar
+ * @param {Baloncesto} jugador Datos del jugador a modificar
  */
-Plantilla.modificarNombre = function (jugador) {
+Baloncesto.modificarNombre = function (jugador) {
     let msj = `<form method='post' action=''>
     <div> 
     <label for="nombre">Nombre del jugador:</label>
@@ -382,7 +382,7 @@ Plantilla.modificarNombre = function (jugador) {
     <label for="altura">Altura del jugador:</label>
     <input type="text" disabled id="id_altura" value="${jugador.data.altura}" name="altura_persona"/><br>
     <br>
-    <div><a href="javascript:Plantilla.guardar('358542586888061132')" class="opcion-principal">Guardar</a></div>
+    <div><a href="javascript:Baloncesto.guardar('358542586888061132')" class="opcion-principal">Guardar</a></div>
     </div>
     </form>`;
 
@@ -392,11 +392,11 @@ Plantilla.modificarNombre = function (jugador) {
 
 /**
  * Función para guardar los nuevos datos de una persona
- * @param {Plantilla} jugador Datos del jugador a guardar
+ * @param {Baloncesto} jugador Datos del jugador a guardar
  */
-Plantilla.guardar = async function (id_jugador) {
+Baloncesto.guardar = async function (id_jugador) {
     try {
-        let url = Frontend.API_GATEWAY + "/plantilla/setNombre/"
+        let url = Frontend.API_GATEWAY + "/baloncesto/setNombre/"
         let id_persona = id_jugador
         const response = await fetch(url, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -414,7 +414,7 @@ Plantilla.guardar = async function (id_jugador) {
                 
             }), // body data type must match "Content-Type" header
         })
-        Plantilla.mostrarJugador(id_persona)
+        Baloncesto.mostrarJugador(id_persona)
     } catch (error) {
         alert("Error: No se han podido acceder al API Gateway " + error)
         //console.error(error)
@@ -425,15 +425,15 @@ Plantilla.guardar = async function (id_jugador) {
  * Función principal para modificar los datos menos la fecha de nacimiento y la categoría de un jugador
  * @param {String} idJugador Identificador del jugador a modificar
  */
-Plantilla.modificarJugador = function (idJugador) {
+Baloncesto.modificarJugador = function (idJugador) {
     this.recuperaJugador(idJugador, this.modificar);
 }
 
 /**
  * Función principal para modificar los datos menos la fecha de nacimiento y la categoría de un jugador
- * @param {Plantilla} jugador Datos del jugador a modificar
+ * @param {Baloncesto} jugador Datos del jugador a modificar
  */
-Plantilla.modificar = function (jugador) {
+Baloncesto.modificar = function (jugador) {
     let msj = `<form method='post' action=''>
     <div> 
     <label for="nombre">Nombre del jugador:</label>
@@ -455,7 +455,7 @@ Plantilla.modificar = function (jugador) {
     <label for="altura">Altura del jugador:</label>
     <input type="text" id="id_altura" value="${jugador.data.altura}" name="altura_persona"/><br>
     <br>
-    <div><a href="javascript:Plantilla.guardarJugador('358542112682148045')" class="opcion-principal">Guardar</a></div>
+    <div><a href="javascript:Baloncesto.guardarJugador('358542112682148045')" class="opcion-principal">Guardar</a></div>
     </div>
     </form>`;
 
@@ -465,11 +465,11 @@ Plantilla.modificar = function (jugador) {
 
 /**
  * Función para guardar los nuevos datos de una persona
- * @param {Plantilla} jugador Datos del jugador a guardar
+ * @param {Baloncesto} jugador Datos del jugador a guardar
  */
-Plantilla.guardarJugador = async function (id_jugador) {
+Baloncesto.guardarJugador = async function (id_jugador) {
     try {
-        let url = Frontend.API_GATEWAY + "/plantilla/setTodo/"
+        let url = Frontend.API_GATEWAY + "/baloncesto/setTodo/"
         let id_persona = id_jugador
         const response = await fetch(url, {
             method: 'POST', // *GET, POST, PUT, DELETE, etc.
@@ -492,7 +492,7 @@ Plantilla.guardarJugador = async function (id_jugador) {
                 "altura_persona": document.getElementById("id_altura").value
             }), // body data type must match "Content-Type" header
         })
-        Plantilla.mostrarJugador(id_persona)
+        Baloncesto.mostrarJugador(id_persona)
     } catch (error) {
         alert("Error: No se han podido acceder al API Gateway " + error)
         //console.error(error)
@@ -504,7 +504,7 @@ Plantilla.guardarJugador = async function (id_jugador) {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.incluyeApellidos = function (vector, texto) {
+Baloncesto.incluyeApellidos = function (vector, texto) {
     // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.
     // Si no, uso el valor que se ha pasado por parámetro.
     if( typeof document.getElementById("id_apellidos") != "undefined" && document.getElementById("id_apellidos")!=null ) texto=document.getElementById("id_apellidos").value
@@ -539,7 +539,7 @@ Plantilla.incluyeApellidos = function (vector, texto) {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.incluyePais = function (vector, texto) {
+Baloncesto.incluyePais = function (vector, texto) {
     // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.
     // Si no, uso el valor que se ha pasado por parámetro.
     if( typeof document.getElementById("id_pais") != "undefined" && document.getElementById("id_pais")!=null ) texto=document.getElementById("id_pais").value
@@ -574,7 +574,7 @@ Plantilla.incluyePais = function (vector, texto) {
  * @param {Vector_de_personas} vector Vector con los datos de las personas a mostrar
  */
 
-Plantilla.incluyeCampeonatos = function (vector, texto) {
+Baloncesto.incluyeCampeonatos = function (vector, texto) {
     // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.
     // Si no, uso el valor que se ha pasado por parámetro.
     if( typeof document.getElementById("id_campeonatos") != "undefined" && document.getElementById("id_campeonatos")!=null ) texto=document.getElementById("id_campeonatos").value
@@ -608,17 +608,17 @@ Plantilla.incluyeCampeonatos = function (vector, texto) {
  * Función para introducir el texto correspondiente para buscar los jugadores según sus apellidos, país o nº de campeonatos ganados.
  */
 
-Plantilla.buscar = function () {
+Baloncesto.buscar = function () {
     let msj = `<div>
     <p> Buscar jugadores cuyos apellidos incluyen: </p>
     <input type="text" id="id_apellidos">
-    <button onclick="javascript:Plantilla.recupera(Plantilla.incluyeApellidos);">Buscar</button>
+    <button onclick="javascript:Baloncesto.recupera(Baloncesto.incluyeApellidos);">Buscar</button>
     <p> Buscar jugadores cuyo país sea: </p>
     <input type="text" id="id_pais">
-    <button onclick="javascript:Plantilla.recupera(Plantilla.incluyePais);">Buscar</button>
+    <button onclick="javascript:Baloncesto.recupera(Baloncesto.incluyePais);">Buscar</button>
     <p> Buscar jugadores que hayan ganado el siguiente nº de campeonatos: </p>
     <input type="text" id="id_campeonatos">
-    <button onclick="javascript:Plantilla.recupera(Plantilla.incluyeCampeonatos);">Buscar</button>
+    <button onclick="javascript:Baloncesto.recupera(Baloncesto.incluyeCampeonatos);">Buscar</button>
     </div>`;
 
     Frontend.Article.actualizar("Buscar jugadores por campos", msj)

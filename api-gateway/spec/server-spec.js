@@ -12,7 +12,7 @@ const assert = require('assert')
 const app = require('../server');
 
 describe('API Gateway: rutas estáticas', () => {
-  describe('Rutas estáticas de MS Plantilla', () => {
+  describe('Rutas estáticas de MS Baloncesto', () => {
     it('Devuelve MS Baloncesto Home Page', (done) => {
       supertest(app)
         .get('/baloncesto/')

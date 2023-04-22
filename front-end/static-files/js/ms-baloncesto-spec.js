@@ -1,6 +1,6 @@
 /**
- * @file ms-plantilla-spec.js
- * @description Fichero TDD para probar todo lo relacionado con MS Plantilla en el front-end
+ * @file ms-baloncesto-spec.js
+ * @description Fichero TDD para probar todo lo relacionado con MS Baloncesto en el front-end
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -10,8 +10,8 @@
 // Constantes para usar en las pruebas
 const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
 const elementoContenido = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_CONTENIDO)
-const TITULO_HOME = "Plantilla Home"
-const TITULO_ACERCA_DE = "Plantilla Acerca de"
+const TITULO_HOME = "Baloncesto Home"
+const TITULO_ACERCA_DE = "Baloncesto Acerca de"
 
 const datosDescargadosPrueba = {
     mensaje: "Mensaje de prueba descargado",
@@ -96,86 +96,86 @@ function esperar(ms) {
 
 // SPECS a probar
 
-describe("Plantilla.mostrarHome: ", function () {
+describe("Baloncesto.mostrarHome: ", function () {
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarHome()
+            Baloncesto.mostrarHome()
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Baloncesto.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarHome(23)
+            Baloncesto.mostrarHome(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Baloncesto.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
-            Plantilla.mostrarHome({})
+            Baloncesto.mostrarHome({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Baloncesto.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarHome({ foo: "bar" })
+            Baloncesto.mostrarHome({ foo: "bar" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Baloncesto.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Plantilla.mostrarHome(datosDescargadosPrueba)
+            Baloncesto.mostrarHome(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
             expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
 
-describe("Plantilla.mostrarAcercaDe: ", function () {
+describe("Baloncesto.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarAcercaDe()
+            Baloncesto.mostrarAcercaDe()
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Baloncesto.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarAcercaDe(23)
+            Baloncesto.mostrarAcercaDe(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Baloncesto.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
-            Plantilla.mostrarAcercaDe({})
+            Baloncesto.mostrarAcercaDe({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Baloncesto.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
+            Baloncesto.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Baloncesto.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
+            Baloncesto.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Baloncesto.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
+            Baloncesto.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Baloncesto.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
+            Baloncesto.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Baloncesto.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Plantilla.mostrarAcercaDe(datosDescargadosPrueba)
+            Baloncesto.mostrarAcercaDe(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
@@ -201,11 +201,11 @@ Las siguientes funciones no podemos probarlas ya que se encargan de probar las c
 -modificarJugador()
 */
 
-describe("Plantilla.imprimeJugador: ", function () {
+describe("Baloncesto.imprimeJugador: ", function () {
     it("muestra los datos de un jugador",
         function () {
             let persona = d.datos_personas[0]
-            Plantilla.imprimeJugador(persona)
+            Baloncesto.imprimeJugador(persona)
             expect(elementoTitulo.innerHTML).toBe('Mostrar datos del jugador')
             expect(elementoContenido.innerHTML.includes(persona.data.nombre)).toBeTrue()
             expect(elementoContenido.innerHTML.includes(persona.data.apellidos)).toBeTrue()
@@ -221,11 +221,11 @@ describe("Plantilla.imprimeJugador: ", function () {
         })
 })
 
-describe("Plantilla.imprimeNombres: ", function () {
+describe("Baloncesto.imprimeNombres: ", function () {
     it("muestra los nombres de un jugador",
         function () {
             let personas = d.datos_personas
-            Plantilla.imprimeNombres(personas)
+            Baloncesto.imprimeNombres(personas)
             for (let i = 0; i < d.datos_personas.length; ++i) {
                 expect(elementoContenido.innerHTML.includes(personas[i].data.nombre)).toBeTrue()
             }
@@ -233,22 +233,22 @@ describe("Plantilla.imprimeNombres: ", function () {
 })
 
 
-describe("Plantilla.imprimeNombresOrdenados: ", function () {
+describe("Baloncesto.imprimeNombresOrdenados: ", function () {
     it("muestra los nombres ordenados alfabéticamente",
         function () {
             let personas = d.datos_personas
-            Plantilla.imprimeNombres(personas)
+            Baloncesto.imprimeNombres(personas)
             for (let i = 0; i < d.datos_personas.length; ++i) {
                 expect(elementoContenido.innerHTML.includes(personas[i].data.nombre)).toBeTrue()
             }
         })
 })
 
-describe("Plantilla.imprimeDatos: ", function () {
+describe("Baloncesto.imprimeDatos: ", function () {
     it("muestra datos jugadores",
         function () {
             let personas = d.datos_personas
-            Plantilla.imprimeDatos(personas)
+            Baloncesto.imprimeDatos(personas)
             for (let i = 0; i < d.datos_personas.length; ++i) {
                 expect(elementoContenido.innerHTML.includes(personas[i].data.nombre)).toBeTrue()
                 expect(elementoContenido.innerHTML.includes(personas[i].data.apellidos)).toBeTrue()
@@ -265,11 +265,11 @@ describe("Plantilla.imprimeDatos: ", function () {
         })
 })
 
-describe("Plantilla.imprimeJugadorSigAnt: ", function () {
+describe("Baloncesto.imprimeJugadorSigAnt: ", function () {
     it("muestra los datos de un jugador",
         function () {
             let persona = d.datos_personas[0]
-            Plantilla.imprimeJugadorSigAnt(persona)
+            Baloncesto.imprimeJugadorSigAnt(persona)
             expect(elementoTitulo.innerHTML).toBe('Mostrar datos del jugador')
             expect(elementoContenido.innerHTML.includes(persona.data.nombre)).toBeTrue()
             expect(elementoContenido.innerHTML.includes(persona.data.apellidos)).toBeTrue()
@@ -285,12 +285,12 @@ describe("Plantilla.imprimeJugadorSigAnt: ", function () {
         })
 })
 
-describe("Plantilla.incluyeNombre: ", function () {
+describe("Baloncesto.incluyeNombre: ", function () {
     it("muestra los datos de un jugador cuyo nombre contenga Elena",
         function () {
             let personas = d.datos_personas
             let texto = "Elena"
-            Plantilla.incluyeNombre(personas, texto )
+            Baloncesto.incluyeNombre(personas, texto )
             expect(elementoTitulo.innerHTML.includes("Jugadores cuyo nombre contiene")).toBeTrue()
             expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeTrue()
             expect(elementoContenido.innerHTML.includes(texto)).toBeTrue()  
@@ -299,7 +299,7 @@ describe("Plantilla.incluyeNombre: ", function () {
         function () {
             let personas = d.datos_personas
             let texto = "Patata Frita"
-            Plantilla.incluyeNombre(personas, texto)
+            Baloncesto.incluyeNombre(personas, texto)
             expect(elementoTitulo.innerHTML.includes("Jugadores cuyo nombre contiene")).toBeTrue()
             expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeFalse()
             expect(elementoContenido.innerHTML.includes(texto)).toBeFalse()  
@@ -307,25 +307,25 @@ describe("Plantilla.incluyeNombre: ", function () {
     
 })
 
-describe("Plantilla.buscarNombre: ", function () {
+describe("Baloncesto.buscarNombre: ", function () {
     it("muestra como contenido Buscar jugadores cuyo nombre incluye",
         function () {
-            Plantilla.buscarNombre()
+            Baloncesto.buscarNombre()
             expect(elementoTitulo.innerHTML).toBe("Buscar jugadores por nombre")
             expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyo nombre incluye")).toBeTrue()  
         })
         it("no muestra como contenido Buscar jugadores cuyo nombre tiene",
         function () {
-            Plantilla.buscarNombre()
+            Baloncesto.buscarNombre()
             expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyo nombre tiene")).toBeFalse()
         })
 })
 
-describe("Plantilla.modificarNombre: ", function () {
+describe("Baloncesto.modificarNombre: ", function () {
     it("muestra los datos del jugador cuyo nombre se va a modificar",
         function () {
             let persona = d.datos_personas[0]
-            Plantilla.modificarNombre(persona)
+            Baloncesto.modificarNombre(persona)
             expect(elementoTitulo.innerHTML).toBe("Modificar nombre jugador")
             expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeTrue()  
             expect(elementoContenido.innerHTML.includes(persona.data.nombre)).toBeTrue()
@@ -333,16 +333,16 @@ describe("Plantilla.modificarNombre: ", function () {
         it("no muestra como contenido los ojos del jugador",
         function () {
             let persona = d.datos_personas[0]
-            Plantilla.modificarNombre(persona)
+            Baloncesto.modificarNombre(persona)
             expect(elementoContenido.innerHTML.includes("ojos del jugador")).toBeFalse()
         })
 })
 
-describe("Plantilla.modificar: ", function () {
+describe("Baloncesto.modificar: ", function () {
     it("muestra los datos del jugador a modificar",
         function () {
             let persona = d.datos_personas[0]
-            Plantilla.modificar(persona)
+            Baloncesto.modificar(persona)
             expect(elementoTitulo.innerHTML).toBe("Modificar datos jugador")
             expect(elementoContenido.innerHTML.includes("Apellidos del jugador")).toBeTrue()  
             expect(elementoContenido.innerHTML.includes(persona.data.apellidos)).toBeTrue()
@@ -350,17 +350,17 @@ describe("Plantilla.modificar: ", function () {
         it("no muestra como contenido los ojos del jugador",
         function () {
             let persona = d.datos_personas[0]
-            Plantilla.modificar(persona)
+            Baloncesto.modificar(persona)
             expect(elementoContenido.innerHTML.includes("ojos del jugador")).toBeFalse()
         })
 })
 
-describe("Plantilla.incluyeApellidos: ", function () {
+describe("Baloncesto.incluyeApellidos: ", function () {
     it("muestra los datos de un jugador cuyos apellidos contengan Carmona",
         function () {
             let personas = d.datos_personas
             let texto = "Carmona"
-            Plantilla.incluyeApellidos(personas, texto )
+            Baloncesto.incluyeApellidos(personas, texto )
             expect(elementoTitulo.innerHTML.includes("Jugadores cuyos apellidos contienen")).toBeTrue()
             expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeTrue()
             expect(elementoContenido.innerHTML.includes(texto)).toBeTrue()  
@@ -369,7 +369,7 @@ describe("Plantilla.incluyeApellidos: ", function () {
         function () {
             let personas = d.datos_personas
             let texto = "hola"
-            Plantilla.incluyeApellidos(personas, texto)
+            Baloncesto.incluyeApellidos(personas, texto)
             expect(elementoTitulo.innerHTML.includes("Jugadores cuyos apellidos contienen")).toBeTrue()
             expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeFalse()
             expect(elementoContenido.innerHTML.includes(texto)).toBeFalse()  
@@ -377,12 +377,12 @@ describe("Plantilla.incluyeApellidos: ", function () {
     
 })
 
-describe("Plantilla.incluyePais: ", function () {
+describe("Baloncesto.incluyePais: ", function () {
     it("muestra los datos de un jugador cuyo país sea España",
         function () {
             let personas = d.datos_personas
             let texto = "España"
-            Plantilla.incluyePais(personas, texto )
+            Baloncesto.incluyePais(personas, texto )
             expect(elementoTitulo.innerHTML.includes("Jugadores cuyo país es")).toBeTrue()
             expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeTrue()
             expect(elementoContenido.innerHTML.includes(texto)).toBeTrue()  
@@ -391,7 +391,7 @@ describe("Plantilla.incluyePais: ", function () {
         function () {
             let personas = d.datos_personas
             let texto = "Francia"
-            Plantilla.incluyePais(personas, texto)
+            Baloncesto.incluyePais(personas, texto)
             expect(elementoTitulo.innerHTML.includes("Jugadores cuyo país es")).toBeTrue()
             expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeFalse()
             expect(elementoContenido.innerHTML.includes(texto)).toBeFalse()  
@@ -399,12 +399,12 @@ describe("Plantilla.incluyePais: ", function () {
     
 })
 
-describe("Plantilla.incluyeCampeonatos: ", function () {
+describe("Baloncesto.incluyeCampeonatos: ", function () {
     it("muestra los datos de un jugador que haya ganado 1 campeonato",
         function () {
             let personas = d.datos_personas
             let texto = "1"
-            Plantilla.incluyeCampeonatos(personas, texto )
+            Baloncesto.incluyeCampeonatos(personas, texto )
             expect(elementoTitulo.innerHTML.includes("Jugadores que hayan ganado")).toBeTrue()
             expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeTrue()
             expect(elementoContenido.innerHTML.includes(texto)).toBeTrue()  
@@ -413,7 +413,7 @@ describe("Plantilla.incluyeCampeonatos: ", function () {
         function () {
             let personas = d.datos_personas
             let texto = "5"
-            Plantilla.incluyeCampeonatos(personas, texto)
+            Baloncesto.incluyeCampeonatos(personas, texto)
             expect(elementoTitulo.innerHTML.includes("Jugadores que hayan ganado")).toBeTrue()
             expect(elementoContenido.innerHTML.includes("Nombre del jugador")).toBeFalse()
             expect(elementoContenido.innerHTML.includes(texto)).toBeFalse()  
@@ -421,10 +421,10 @@ describe("Plantilla.incluyeCampeonatos: ", function () {
     
 })
 
-describe("Plantilla.buscar: ", function () {
+describe("Baloncesto.buscar: ", function () {
     it("muestra buscar por tres campos",
         function () {
-            Plantilla.buscar()
+            Baloncesto.buscar()
             expect(elementoTitulo.innerHTML).toBe("Buscar jugadores por campos")
             expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyos apellidos incluyen")).toBeTrue()  
             expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyo país sea")).toBeTrue() 
@@ -432,7 +432,7 @@ describe("Plantilla.buscar: ", function () {
         })
         it("no muestra como contenido Buscar jugadores cuyo nombre tiene",
         function () {
-            Plantilla.buscar()
+            Baloncesto.buscar()
             expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyo nombre tiene")).toBeFalse()
         })
 })
@@ -445,9 +445,9 @@ IMPORTANTE
 Las pruebas TDD que se encargan de probar las conexiones con el microservicio desde el cliente son difíciles de probar 
 dado que requieren solucionar temas de sincronización. 
 Esto afecta a los métodos:
- - Plantilla.descargarRuta
- - Plantilla.procesarAcercaDe
- - Plantilla.procesarHome
+ - Baloncesto.descargarRuta
+ - Baloncesto.procesarAcercaDe
+ - Baloncesto.procesarHome
 
  Las soluciones propuestas en distintos sitios web no han producido el resultado esperado, 
  por tanto: para esta práctica, se pueden dejar SIN HACER.
