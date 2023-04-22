@@ -15,7 +15,7 @@ describe('API Gateway: rutas estáticas', () => {
   describe('Rutas estáticas de MS Plantilla', () => {
     it('Devuelve MS Baloncesto Home Page', (done) => {
       supertest(app)
-        .get('/plantilla/')
+        .get('/baloncesto/')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
@@ -27,7 +27,7 @@ describe('API Gateway: rutas estáticas', () => {
     });
     it('Devuelve MS Baloncesto Acerca De', (done) => {
       supertest(app)
-        .get('/plantilla/acercade')
+        .get('/baloncesto/acercade')
         .expect(200)
         .expect('Content-Type', /json/)
         .expect(function (res) {
@@ -45,7 +45,7 @@ describe('API Gateway: rutas estáticas', () => {
 describe('BBDD Personas', () => {
   it(' > Obtener una persona por su id: debe tener un campo data y a su vez un nombre que es Fernando', (done) => {
     supertest(app)
-      .get('/plantilla/getPorId/358542021274632397')
+      .get('/baloncesto/getPorId/358542021274632397')
       .expect(200)
       .expect('Content-Type', /json/)
       .expect(function (res) {
@@ -58,7 +58,7 @@ describe('BBDD Personas', () => {
 
   it(' > Obtener todas las personas: debe tener un campo data que es un array de 10 objetos', (done) => {
     supertest(app)
-      .get('/plantilla/getTodas')
+      .get('/baloncesto/getTodas')
       .expect(200)
       .expect('Content-Type', /json/)
       .expect(function (res) {
@@ -93,7 +93,7 @@ describe('BBDD Personas', () => {
       altura_persona: 1.69
     };
     supertest(app)
-      .post('/plantilla/setNombre')
+      .post('/baloncesto/setNombre')
       .send(persona)
       .expect(200)
       .expect('Content-Type', /json/)
@@ -129,7 +129,7 @@ describe('BBDD Personas', () => {
       altura_persona: 1.72
     };
     supertest(app)
-      .post('/plantilla/setTodo')
+      .post('/baloncesto/setTodo')
       .send(persona)
       .expect(200)
       .expect('Content-Type', /json/)
