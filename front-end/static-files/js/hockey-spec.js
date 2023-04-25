@@ -35,86 +35,86 @@ function esperar(ms) {
 
 // SPECS a probar
 
-describe("Plantilla.mostrarHome: ", function () {
+describe("Hockey.mostrarHome: ", function () {
 
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarHome()
+            Hockey.mostrarHome()
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Hockey.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarHome(23)
+            Hockey.mostrarHome(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Hockey.datosDescargadosNulos.mensaje)
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje",
         function () {
             // Objeto vacío
-            Plantilla.mostrarHome({})
+            Hockey.mostrarHome({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Hockey.datosDescargadosNulos.mensaje)
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarHome({ foo: "bar" })
+            Hockey.mostrarHome({ foo: "bar" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
-            expect(elementoContenido.innerHTML).toBe(Plantilla.datosDescargadosNulos.mensaje)
+            expect(elementoContenido.innerHTML).toBe(Hockey.datosDescargadosNulos.mensaje)
         })
 
     it("muestra correctamente el título y el mensaje",
         function () {
-            Plantilla.mostrarHome(datosDescargadosPrueba)
+            Hockey.mostrarHome(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_HOME)
             expect(elementoContenido.innerHTML).toBe(datosDescargadosPrueba.mensaje)
         })
 })
 
 
-describe("Plantilla.mostrarAcercaDe: ", function () {
+describe("Hockey.mostrarAcercaDe: ", function () {
     it("muestra datos nulos cuando le pasamos un valor nulo",
         function () {
-            Plantilla.mostrarAcercaDe()
+            Hockey.mostrarAcercaDe()
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Hockey.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un valor que no es un objeto",
         function () {
-            Plantilla.mostrarAcercaDe(23)
+            Hockey.mostrarAcercaDe(23)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Hockey.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
 
     it("muestra datos nulos cuando le pasamos un objeto que no tiene campo mensaje o autor o email o fecha ",
         function () {
             // Objeto vacío
-            Plantilla.mostrarAcercaDe({})
+            Hockey.mostrarAcercaDe({})
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Hockey.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
 
             // Objeto sin campo mensaje
-            Plantilla.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
+            Hockey.mostrarAcercaDe({ autor: "un autor", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Hockey.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo autor
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
+            Hockey.mostrarAcercaDe({ mensaje: "un mensaje", email: "un email", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Hockey.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo email
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
+            Hockey.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", fecha: "una fecha" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Hockey.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
             // Objeto sin campo fecha
-            Plantilla.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
+            Hockey.mostrarAcercaDe({ mensaje: "un mensaje", autor: "un autor", email: "un email" })
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
-            expect(elementoContenido.innerHTML.search(Plantilla.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(Hockey.datosDescargadosNulos.mensaje) >= 0).toBeTrue()
         })
     it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
         function () {
-            Plantilla.mostrarAcercaDe(datosDescargadosPrueba)
+            Hockey.mostrarAcercaDe(datosDescargadosPrueba)
             expect(elementoTitulo.innerHTML).toBe(TITULO_ACERCA_DE)
 
             // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
@@ -127,7 +127,7 @@ describe("Plantilla.mostrarAcercaDe: ", function () {
 describe("Pie table ", function () {
     it("debería devolver las etiquetas HTML para el pie de tabla",
         function () {
-            expect(Plantilla.pieTable()).toBe("</tbody></table>");
+            expect(Hockey.pieTable()).toBe("</tbody></table>");
         });
 });
 
@@ -149,7 +149,7 @@ describe("CuerpoTr ", function () {
 
     it("debería devolver una fila de tabla con el nombre del jugador asociado",
         function () {
-            let msj = Plantilla.cuerpoTr(p)
+            let msj = Hockey.cuerpoTr(p)
             console.log(msj);
             expect(msj.includes(d.nombre)).toBeTrue();
         });
@@ -180,7 +180,7 @@ describe("cuerpoTodosDatosTr ", function () {
 
     it("debería devolver una fila de tabla con los datos del jugador asociado",
         function () {
-            let msj = Plantilla.cuerpoTodosDatosTr(p)
+            let msj = Hockey.cuerpoTodosDatosTr(p)
             console.log(msj);
             expect(msj.includes(d.nombre)).toBeTrue();
             expect(msj.includes(d.apellido)).toBeTrue();
@@ -196,56 +196,56 @@ describe("cuerpoTodosDatosTr ", function () {
 describe("CabeceraPorCampo ", function () {
     it("debería devolver las etiquetas HTML para la cabecera por campo",
         function () {
-            expect(Plantilla.cabeceraPorCampo()).toContain("<select");
-            expect(Plantilla.cabeceraPorCampo()).toContain("<option>");
-            expect(Plantilla.cabeceraPorCampo()).toContain("</select>");
+            expect(Hockey.cabeceraPorCampo()).toContain("<select");
+            expect(Hockey.cabeceraPorCampo()).toContain("<option>");
+            expect(Hockey.cabeceraPorCampo()).toContain("</select>");
         });
 });
 
 describe("CabeceraPorCampo ", function () {
     it("debería devolver las etiquetas HTML para la cabecera por campo",
         function () {
-            expect(Plantilla.cabeceraPorCampo()).toContain("<select");
-            expect(Plantilla.cabeceraPorCampo()).toContain("<option>");
-            expect(Plantilla.cabeceraPorCampo()).toContain("</select>");
+            expect(Hockey.cabeceraPorCampo()).toContain("<select");
+            expect(Hockey.cabeceraPorCampo()).toContain("<option>");
+            expect(Hockey.cabeceraPorCampo()).toContain("</select>");
         });
 });
 
 describe("CabeceraDatosUno ", function () {
     it("debería devolver las etiquetas HTML para la cabecera datos de un jugador",
         function () {
-            expect(Plantilla.cabeceraDatosUno()).toContain('<select id="opcionNombre"');
-            expect(Plantilla.cabeceraDatosUno()).toContain("<option>");
-            expect(Plantilla.cabeceraDatosUno()).toContain("</select>");
+            expect(Hockey.cabeceraDatosUno()).toContain('<select id="opcionNombre"');
+            expect(Hockey.cabeceraDatosUno()).toContain("<option>");
+            expect(Hockey.cabeceraDatosUno()).toContain("</select>");
         });
 });
 
 describe("CabeceraDatosClick ", function () {
     it("debería devolver las etiquetas HTML para la cabecera datos cambiando con un solo click",
         function () {
-            expect(Plantilla.cabeceraDatosClick()).toContain('<button id="previo"');
-            expect(Plantilla.cabeceraDatosClick()).toContain('<button id="siguiente"');
-            expect(Plantilla.cabeceraDatosClick()).toContain("</button>");
+            expect(Hockey.cabeceraDatosClick()).toContain('<button id="previo"');
+            expect(Hockey.cabeceraDatosClick()).toContain('<button id="siguiente"');
+            expect(Hockey.cabeceraDatosClick()).toContain("</button>");
         });
 });
 
 describe("CabeceraFiltro ", function () {
     it("debería devolver las etiquetas HTML para la cabecera datos con filtro",
         function () {
-            expect(Plantilla.cabeceraFiltro()).toContain('<input type="text" id="myInput" placeholder="Filtro..." title="Escribe un nombre">');
-            expect(Plantilla.cabeceraFiltro()).toContain('<button onclick="filtroNombre()">');
+            expect(Hockey.cabeceraFiltro()).toContain('<input type="text" id="myInput" placeholder="Filtro..." title="Escribe un nombre">');
+            expect(Hockey.cabeceraFiltro()).toContain('<button onclick="filtroNombre()">');
         });
 });
 
 describe("CabeceraFiltroCampos ", function () {
     it("debería devolver las etiquetas HTML para la cabecera datos con filtro",
         function () {
-            expect(Plantilla.cabeceraFiltroCampos()).toContain('<input type="text" id="inputApellido"');
-            expect(Plantilla.cabeceraFiltroCampos()).toContain('<button onclick="filtroApellido()">');
-            expect(Plantilla.cabeceraFiltroCampos()).toContain('<input type="text" id="inputEquipo"');
-            expect(Plantilla.cabeceraFiltroCampos()).toContain('<button onclick="filtroEquipo()">');
-            expect(Plantilla.cabeceraFiltroCampos()).toContain('<input type="number" id="inputFecha"');
-            expect(Plantilla.cabeceraFiltroCampos()).toContain('<button onclick="filtroFecha()">');
+            expect(Hockey.cabeceraFiltroCampos()).toContain('<input type="text" id="inputApellido"');
+            expect(Hockey.cabeceraFiltroCampos()).toContain('<button onclick="filtroApellido()">');
+            expect(Hockey.cabeceraFiltroCampos()).toContain('<input type="text" id="inputEquipo"');
+            expect(Hockey.cabeceraFiltroCampos()).toContain('<button onclick="filtroEquipo()">');
+            expect(Hockey.cabeceraFiltroCampos()).toContain('<input type="number" id="inputFecha"');
+            expect(Hockey.cabeceraFiltroCampos()).toContain('<button onclick="filtroFecha()">');
         });
 });
 

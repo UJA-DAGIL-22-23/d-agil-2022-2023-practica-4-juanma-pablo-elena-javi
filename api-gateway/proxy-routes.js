@@ -16,6 +16,16 @@ const ROUTES = [
                 [`^/baloncesto`]: '',
             },
         }
+    },
+    {
+        url: '/hockey',
+        proxy: {
+            target: "http://localhost:8005",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/hockey`]: '',
+            },
+        }
     }
 ]
 

@@ -617,68 +617,68 @@ function aplicarFiltroFecha(data){
  * Función principal para responder al evento de elegir la opción "Home"
  */
 Hockey.procesarHome = function () {
-    this.descargarRuta("/plantilla/", this.mostrarHome);
+    this.descargarRuta("/hockey/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
 Hockey.procesarAcercaDe = function () {
-    this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+    this.descargarRuta("/hockey/acercade", this.mostrarAcercaDe);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Listar nombres Jugadores"
  */
 Hockey.procesarlistaJugadoresEquipos = function () {
-    this.descargarRuta("/plantilla/listaJugadoresEquipos", this.mostrarJugadoresEquipos);
+    this.descargarRuta("/hockey/listaJugadoresEquipos", this.mostrarJugadoresEquipos);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Listar datos Jugadores"
  */
 Hockey.procesarlistaDatosJugadores = function () {
-    this.descargarRuta("/plantilla/listaJugadoresEquiposTodos", this.mostrarJugadoresDatos);
+    this.descargarRuta("/hockey/listaJugadoresEquiposTodos", this.mostrarJugadoresDatos);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Listar nombres alfabéticamente"
  */
 Hockey.procesarJugadoresAlfabetica = function () {
-    this.descargarRuta("/plantilla/listaJugadoresAlfabetica", this.mostrarJugadoresAlfabetica);
+    this.descargarRuta("/hockey/listaJugadoresAlfabetica", this.mostrarJugadoresAlfabetica);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Listar datos por campo"
  */
 Hockey.procesarJugadoresPorCampo = function () {
-    this.descargarRuta("/plantilla/listaJugadoresPorCampo", this.mostrarJugadoresPorCampo);
+    this.descargarRuta("/hockey/listaJugadoresPorCampo", this.mostrarJugadoresPorCampo);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Listar datos de un jugador"
  */
 Hockey.procesarJugadoresDatosUno = function () {
-    this.descargarRuta("/plantilla/listaJugadoresDatosUno", this.mostrarJugadoresDatosUno);
+    this.descargarRuta("/hockey/listaJugadoresDatosUno", this.mostrarJugadoresDatosUno);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Listar datos de un jugador con un click"
  */
 Hockey.procesarJugadoresDatosClick = function () {
-    this.descargarRuta("/plantilla/listaJugadoresDatosClick", this.mostrarJugadoresDatosClick);
+    this.descargarRuta("/hockey/listaJugadoresDatosClick", this.mostrarJugadoresDatosClick);
 }
 
 /**
  * 
  */
 Hockey.procesarJugadoresFiltro = function () {
-    this.descargarRuta("/plantilla/listaJugadoresFiltro", this.mostrarJugadoresFiltro);
+    this.descargarRuta("/hockey/listaJugadoresFiltro", this.mostrarJugadoresFiltro);
 }
 
 /**
  * 
  */
 Hockey.procesarJugadoresFiltroCampos = function () {
-    this.descargarRuta("/plantilla/listaJugadoresFiltroCampos", this.mostrarJugadoresFiltroCampos);
+    this.descargarRuta("/hockey/listaJugadoresFiltroCampos", this.mostrarJugadoresFiltroCampos);
 }
