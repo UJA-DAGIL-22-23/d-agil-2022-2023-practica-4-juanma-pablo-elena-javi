@@ -16,6 +16,16 @@ const ROUTES = [
                 [`^/baloncesto`]: '',
             },
         }
+    },
+    {
+        url: '/piraguismo',
+        proxy: {
+            target: "http://localhost:8003",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^/piraguismo`]: '',
+            },
+        }
     }
 ]
 
