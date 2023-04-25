@@ -23,7 +23,7 @@ const ROUTES = [
             target: "http://localhost:8004",
             changeOrigin: true,
             pathRewrite: {
-                [`^futbol-playa`]: '',
+                [`^/futbol-playa`]: '',
             },
         }
     },
