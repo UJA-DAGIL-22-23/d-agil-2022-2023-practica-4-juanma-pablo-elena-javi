@@ -69,8 +69,9 @@ const CB_MODEL_SELECTS = {
                     q.Lambda("X", q.Get(q.Var("X")))
                 )
             )
-            //console.log(equipos)
-            CORS(res).status(200).json(equipos)
+            CORS(res)
+            .status(200)
+            .json(equipos)
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }
@@ -93,7 +94,7 @@ const CB_OTHERS = {
      */
     home: async (req, res) => {
         try {
-            CORS(res).status(200).json({ mensaje: "Microservicio MS Plantilla: home" });
+            CORS(res).status(200).json({ mensaje: "Microservicio MS FutbolPlaya: home" });
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }

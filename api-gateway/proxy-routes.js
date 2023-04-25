@@ -18,6 +18,16 @@ const ROUTES = [
         }
     },
     {
+        url: '/futbol-playa',
+        proxy: {
+            target: "http://localhost:8004",
+            changeOrigin: true,
+            pathRewrite: {
+                [`^futbol-playa`]: '',
+            },
+        }
+    },
+    {
         url: '/hockey',
         proxy: {
             target: "http://localhost:8005",
