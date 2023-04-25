@@ -682,3 +682,29 @@ Hockey.procesarJugadoresFiltro = function () {
 Hockey.procesarJugadoresFiltroCampos = function () {
     this.descargarRuta("/hockey/listaJugadoresFiltroCampos", this.mostrarJugadoresFiltroCampos);
 }
+
+Hockey.hockey = function() {
+    let msj =`<nav>
+    <a href="javascript:Hockey.procesarHome()" class="opcion-principal"
+        title="Llama a la ruta / del MS Plantilla">Home</a>
+    <a href="javascript:Hockey.procesarAcercaDe()" class="opcion-principal"
+        title="Llama a la ruta /acercade del MS Plantilla">Acerca de</a>
+    <a href="javascript:Hockey.procesarlistaJugadoresEquipos()" class="opcion-principal"
+        title="Llama a la ruta /listaJugadoresEquipos del MS Plantilla">Listar nombres jugadores</a> 
+    <a href="javascript:Hockey.procesarlistaDatosJugadores()" class="opcion-principal"
+        tittle="Llama a la ruta /listaJugadoresDatos del MS Plantilla">Listar datos jugadores</a>
+    <a href="javascript:Hockey.procesarJugadoresAlfabetica()" class="opcion-principal"
+        tittle="Llama a la ruta /listaJugadoresAlfabetica del MS Plantilla">Listar nombres alfab&eacuteticamente</a>
+    <a href="javascript:Hockey.procesarJugadoresPorCampo()" class="opcion-principal"
+        tittle="Llama a la ruta /listaJugadoresPorCampo del MS Plantilla">Listar datos por campo</a>
+    <a href="javascript:Hockey.procesarJugadoresDatosUno()" class="opcion-principal"
+        tittle="Llama a la ruta /listaJugadoresDatosUno del MS Plantilla">Listar datos de un jugador</a>
+    <a href="javascript:Hockey.procesarJugadoresDatosClick()" class="opcion-principal"
+        tittle="Llama a la ruta /listaJugadoresDatosClick del MS Plantilla">Listar datos de un jugador con un click</a>
+    <a href="javascript:Hockey.procesarJugadoresFiltro()" class="opcion-principal"
+        tittle="Llama a la ruta /listaJugadoresFiltro del MS Plantilla">Listar datos con filtro</a>
+    <a href="javascript:Hockey.procesarJugadoresFiltroCampos()" class="opcion-principal"
+        tittle="Llama a la ruta /listaJugadoresFiltroCampos del MS Plantilla">Listar datos con filtro diferentes campos</a>
+</nav>`;
+    Frontend.Article.actualizar("Funcionalidades Hockey", msj)
+}
