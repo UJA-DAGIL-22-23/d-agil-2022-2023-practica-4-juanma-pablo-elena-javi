@@ -35,6 +35,10 @@ https://trello.com/b/FfMoaOLo/tablero-pr4
 - HU 01-Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Elena
 <img src='imagenes\hu01.png'>
 
+-
+
+- HU 04- Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Javi
+<img src='imagenes\hu04.png'>
 
 
 ## Sprint Retrospective
