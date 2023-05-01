@@ -205,7 +205,7 @@ const CB_OTHERS = {
      */
     home: async (req, res) => {
         try {
-            CORS(res).status(200).json({ mensaje: "Microservicio MS Plantilla: home" });
+            CORS(res).status(200).json({ mensaje: "Microservicio MS Hockey: home" });
         } catch (error) {
             CORS(res).status(500).json({ error: error.description })
         }
@@ -219,7 +219,7 @@ const CB_OTHERS = {
     acercaDe: async (req, res) => {
         try {
             CORS(res).status(200).json({
-                mensaje: "Microservicio MS Plantilla: acerca de",
+                mensaje: "Microservicio MS Hockey: acerca de",
                 autor: "Javier Torres Gálvez",
                 email: "jtg00023@red.ujaen.es",
                 fecha: "Marzo - 2023"

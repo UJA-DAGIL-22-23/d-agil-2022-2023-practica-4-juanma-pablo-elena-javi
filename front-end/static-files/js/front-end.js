@@ -7,6 +7,7 @@
 
 /// Espacio de nombres
 let Frontend = {};
+let msj = ``;
 
 
 /// Dirección del MS que funciona como API_GATEWAY
@@ -37,3 +38,43 @@ Frontend.Article.actualizar = function (titulo, contenido) {
     document.getElementById( Frontend.ID_SECCION_PRINCIPAL_CONTENIDO ).innerHTML = contenido
     return this;
 }
+
+Frontend.mostrarTodoAcercaDe = function() {
+    this.msj = ``;
+    Baloncesto.descargarRuta("/baloncesto/acercade", this.mostrarAcercaDe)
+    Hockey.descargarRuta("/hockey/acercade", this.mostrarAcercaDe)
+    FutbolPlaya.descargarRuta("/futbol-playa/acercade", this.mostrarAcercaDe)
+  }
+
+Frontend.mostrarAcercaDe = function(datosDescargados){
+    datosDescargados = datosDescargados || this.datosDescargadosNulos
+
+    // Si datos descargados NO es un objeto 
+    if (typeof datosDescargados !== "object") datosDescargados = this.datosDescargadosNulos
+
+    // Si datos descargados NO contiene los campos mensaje, autor, o email
+    if (typeof datosDescargados.mensaje === "undefined" ||
+        typeof datosDescargados.autor === "undefined" ||
+        typeof datosDescargados.email === "undefined" ||
+        typeof datosDescargados.fecha === "undefined"
+    ) datosDescargados = this.datosDescargadosNulos
+
+    const mensajeAMostrar = `<div>
+    <p>${datosDescargados.mensaje}</p>
+    <ul>
+        <li><b>Autor/a</b>: ${datosDescargados.autor}</li>
+        <li><b>E-mail</b>: ${datosDescargados.email}</li>
+        <li><b>Fecha</b>: ${datosDescargados.fecha}</li>
+    </ul>
+    </div>
+    `;
+
+   this.msj += mensajeAMostrar;
+   Frontend.Article.actualizar("Acerca De", this.msj);
+}
+
+
+  
+
+  
+  

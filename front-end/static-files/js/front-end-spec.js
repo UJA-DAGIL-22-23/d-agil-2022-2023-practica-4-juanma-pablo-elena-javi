@@ -5,6 +5,13 @@
  * @date 03-feb-2023
  */
 
+const datosPrueba = {
+    mensaje: "Mensaje de prueba descargado",
+    autor: "Prueba de autor",
+    email: "Prueba de email",
+    fecha: "00/00/0000"
+}
+
 // SPECS para Jasmine
 describe("Frontend.Article.actualizar: ", function () {
     const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
@@ -60,4 +67,31 @@ describe("Frontend.Article.actualizar: ", function () {
             expect(Frontend.Article.actualizar(tituloPrueba, contenidoPrueba)).toBe(Frontend.Article)
         })
 
+})
+
+describe("Frontend.mostrarTodoAcercaDe: ", function () {
+    it("el msj tiene que estar vacío",
+        function () {
+            // Probamos valores nulos
+            Frontend.mostrarTodoAcercaDe()
+            expect(msj).toBe(``)
+        })  
+
+})
+
+describe("Frontend.mostrarAcercaDe: ", function () {
+    it("muestra correctamente el título y el mensaje conteniendo el autor, el email y la fecha",
+        function () {
+            Frontend.mostrarAcercaDe(datosPrueba)
+
+            // Comprobamos que al buscar el autor, el email y la fecha de prueba los encuentra dentro del contenido del article
+            expect(elementoContenido.innerHTML.search(datosPrueba.autor) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(datosPrueba.email) >= 0).toBeTrue()
+            expect(elementoContenido.innerHTML.search(datosPrueba.fecha) >= 0).toBeTrue()
+
+            expect(elementoTitulo.innerHTML).toBe("Acerca De")
+            expect(elementoContenido.innerHTML.includes("Autor")).toBeTrue() 
+            expect(elementoContenido.innerHTML.includes("E-mail")).toBeTrue() 
+            expect(elementoContenido.innerHTML.includes("Fecha")).toBeTrue() 
+        })
 })
