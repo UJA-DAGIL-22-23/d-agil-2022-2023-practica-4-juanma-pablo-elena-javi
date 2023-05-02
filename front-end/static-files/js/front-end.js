@@ -89,21 +89,6 @@ Frontend.mostrarNombres = function() {
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar("Nombres jugadores", msj)
   }
-  
-let contrasteValor = false;
-  Frontend.contraste = function() {
-    if(contrasteValor == false){
-        const body = document.querySelector('body');
-        body.setAttribute("style", "background-color: #000000; color: #ffffff;")
-        contrasteValor = true;
-    }else{
-        const body = document.querySelector('body');
-        body.setAttribute("style", "background-color: #ffffff; color: #000000;")
-        contrasteValor = false;
-    }
-  }
-
-
 
   Frontend.mostrarTodosNombres = function() {
     Frontend.NombresMsj=""
@@ -120,5 +105,22 @@ let contrasteValor = false;
     Frontend.NombresMsj += msj;
     Frontend.Article.actualizar("Nombres jugadores:", Frontend.NombresMsj)
   }
+  
+let contrasteValor = false;
+  Frontend.contraste = function() {
+    if(contrasteValor == false){
+        const body = document.querySelector('body');
+        body.setAttribute("style", "background-color: #000000; color: #ffffff;")
+        contrasteValor = true;
+    }else{
+        const body = document.querySelector('body');
+        body.setAttribute("style", "background-color: #ffffff; color: #000000;")
+        contrasteValor = false;
+    }
+  }
+
+
+
+  
   
   
