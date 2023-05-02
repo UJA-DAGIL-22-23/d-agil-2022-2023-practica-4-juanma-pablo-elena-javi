@@ -9,6 +9,8 @@
 let Frontend = {};
 let msj = ``;
 
+/// Concatenación de mensajes para Acerca De
+Frontend.AcercaDeMsj= ""
 
 /// Dirección del MS que funciona como API_GATEWAY
 Frontend.API_GATEWAY = "http://localhost:8001"
@@ -40,7 +42,7 @@ Frontend.Article.actualizar = function (titulo, contenido) {
 }
 
 Frontend.mostrarTodoAcercaDe = function() {
-    this.msj = ``;
+    Frontend.AcercaDeMsj=""
     Baloncesto.descargarRuta("/baloncesto/acercade", this.mostrarAcercaDe)
     Hockey.descargarRuta("/hockey/acercade", this.mostrarAcercaDe)
     FutbolPlaya.descargarRuta("/futbol-playa/acercade", this.mostrarAcercaDe)
@@ -69,8 +71,8 @@ Frontend.mostrarAcercaDe = function(datosDescargados){
     </div>
     `;
 
-   this.msj += mensajeAMostrar;
-   Frontend.Article.actualizar("Acerca De", this.msj);
+   Frontend.AcercaDeMsj += mensajeAMostrar;
+   Frontend.Article.actualizar("Acerca De", Frontend.AcercaDeMsj);
 }
 
 
