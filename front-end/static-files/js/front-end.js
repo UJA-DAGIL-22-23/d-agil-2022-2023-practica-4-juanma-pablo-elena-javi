@@ -89,6 +89,16 @@ Frontend.mostrarNombres = function() {
     Frontend.Article.actualizar("Nombres jugadores", msj)
   }
   
+let contrasteValor = false;
+  Frontend.contraste = function() {
+    if(contrasteValor == false){
+        const body = document.querySelector('body');
+        body.setAttribute("style", "background-color: #000000; color: #ffffff;")
+        contrasteValor = true;
+    }else{
+        const body = document.querySelector('body');
+        body.setAttribute("style", "background-color: #ffffff; color: #000000;")
+        contrasteValor = false;
+    }
+  }
 
-  
-  
