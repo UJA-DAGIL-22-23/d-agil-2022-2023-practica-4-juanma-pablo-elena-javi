@@ -11,6 +11,7 @@ let msj = ``;
 
 /// Concatenación de mensajes para Acerca De
 Frontend.AcercaDeMsj= ""
+Frontend.NombresMsj= ""
 
 /// Dirección del MS que funciona como API_GATEWAY
 Frontend.API_GATEWAY = "http://localhost:8001"
@@ -88,7 +89,21 @@ Frontend.mostrarNombres = function() {
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar("Nombres jugadores", msj)
   }
-  
 
+  Frontend.mostrarTodosNombres = function() {
+    Frontend.NombresMsj=""
+    Baloncesto.recupera(Frontend.imprimeNombres);
+    Hockey.recupera(Frontend.imprimeNombres);
+    FutbolPlaya.recupera(Frontend.imprimeNombres);
+  }
+  
+  Frontend.imprimeNombres = function(vector) {
+    let msj = `<div>`
+    vector.forEach(e => msj += `<p> ${e.data.nombre} </p>`)
+    msj += `</div>`
+
+    Frontend.NombresMsj += msj;
+    Frontend.Article.actualizar("Nombres jugadores:", Frontend.NombresMsj)
+  }
   
   
