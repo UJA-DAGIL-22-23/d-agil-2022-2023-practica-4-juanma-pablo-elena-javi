@@ -12,6 +12,7 @@ let msj = ``;
 /// Concatenación de mensajes para Acerca De
 Frontend.AcercaDeMsj= ""
 Frontend.NombresMsj= ""
+Frontend.vectorNombres = []
 
 /// Dirección del MS que funciona como API_GATEWAY
 Frontend.API_GATEWAY = "http://localhost:8001"
@@ -90,22 +91,31 @@ Frontend.mostrarNombres = function() {
     Frontend.Article.actualizar("Nombres jugadores", msj)
   }
 
-  Frontend.mostrarTodosNombres = function() {
-    Frontend.NombresMsj=""
-    Baloncesto.recupera(Frontend.imprimeNombres);
-    Hockey.recupera(Frontend.imprimeNombres);
-    FutbolPlaya.recupera(Frontend.imprimeNombres);
+  Frontend.nombresOrdenados = function() {
+    Baloncesto.recupera(Frontend.juntarVectores);
+    Hockey.recupera(Frontend.juntarVectores);
+    FutbolPlaya.recupera(Frontend.juntarVectores);
+    Frontend.imprimir();
+    Frontend.vectorNombres = []
   }
   
-  Frontend.imprimeNombres = function(vector) {
+  Frontend.juntarVectores = function(vector) {
+
+    vector.forEach(e => Frontend.vectorNombres.push(e.data.nombre))
+    
+  }
+  
+  Frontend.imprimir = function(){
+
+    Frontend.vectorNombres.sort((a, b) => a.localeCompare(b));
+
     let msj = `<div>`
-    vector.forEach(e => msj += `<p> ${e.data.nombre} </p>`)
+    Frontend.vectorNombres.forEach(e => msj += `<p> ${e} </p>`)
     msj += `</div>`
 
-    Frontend.NombresMsj += msj;
-    Frontend.Article.actualizar("Nombres jugadores:", Frontend.NombresMsj)
+    Frontend.Article.actualizar("Nombres jugadores:", msj)
   }
-  
+
 let contrasteValor = false;
   Frontend.contraste = function() {
     if(contrasteValor == false){
