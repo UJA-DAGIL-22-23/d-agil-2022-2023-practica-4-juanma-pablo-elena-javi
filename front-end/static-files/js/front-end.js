@@ -75,7 +75,19 @@ Frontend.mostrarAcercaDe = function(datosDescargados){
    Frontend.Article.actualizar("Acerca De", Frontend.AcercaDeMsj);
 }
 
+Frontend.mostrarNombres = function() {
+    let msj = `<div> 
+    <a href="javascript:Baloncesto.mostrarNombresJugadores()" class="opcion-principal"
+        title="Muestra los nombres de todos los jugadores">Nombres Baloncesto</a>
+    <a href="javascript:Hockey.procesarlistaJugadoresEquipos()" class="opcion-principal"
+        title="Muestra los nombres de todos los jugadores">Nombres Hockey</a>
+    <a href="javascript:FutbolPlaya.mostrarNombresEquipos()" class="opcion-principal"
+        title="Muestra los nombres de todos los jugadores">Nombres Fútbol Playa</a>
+    </div>`;
 
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Nombres jugadores", msj)
+  }
   
 
   
