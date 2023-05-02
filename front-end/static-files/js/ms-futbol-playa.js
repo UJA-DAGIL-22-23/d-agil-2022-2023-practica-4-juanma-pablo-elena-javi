@@ -162,11 +162,11 @@ FutbolPlaya.mostrarNombresEquipos = function () {
 FutbolPlaya.imprimeNombres = function (vector) {
 
     let msj = `<div>`
-    vector.forEach(e => msj += `<p> ${e.data.nombre} </p>`)
+    vector.forEach(e => msj += `<p> ${e.data.Nombre} </p>`)
     msj += `</div>`
 
     // Borro toda la info de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar("Nombres jugadores:", msj)
+    Frontend.Article.actualizar("Nombres equipos:", msj)
 }
 
 FutbolPlaya.Futbolplaya = function () {
