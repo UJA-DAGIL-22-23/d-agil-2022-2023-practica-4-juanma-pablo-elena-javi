@@ -48,6 +48,7 @@ Frontend.mostrarTodoAcercaDe = function() {
     Baloncesto.descargarRuta("/baloncesto/acercade", this.mostrarAcercaDe)
     Hockey.descargarRuta("/hockey/acercade", this.mostrarAcercaDe)
     FutbolPlaya.descargarRuta("/futbol-playa/acercade", this.mostrarAcercaDe)
+    Piraguismo.descargarRuta("/piraguismo/acercade", this.mostrarAcercaDe)
   }
 
 Frontend.mostrarAcercaDe = function(datosDescargados){
