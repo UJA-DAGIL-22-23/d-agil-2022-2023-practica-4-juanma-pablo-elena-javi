@@ -1,6 +1,6 @@
 /**
- * @file Plantilla.js
- * @description Funciones para el procesamiento de la info enviada por el MS Plantilla
+ * @file Piraguismo.js
+ * @description Funciones para el procesamiento de la info enviada por el MS Piraguismo
  * @author Víctor M. Rivas <vrivas@ujaen.es>
  * @date 03-feb-2023
  */
@@ -8,10 +8,10 @@
 "use strict";
 
 /// Creo el espacio de nombres
-let Plantilla = {};
+let Piraguismo = {};
 
-// Plantilla de datosDescargados vacíos
-Plantilla.datosDescargadosNulos = {
+// Piraguismo de datosDescargados vacíos
+Piraguismo.datosDescargadosNulos = {
     mensaje: "Datos Descargados No válidos",
     autor: "",
     email: "",
@@ -20,14 +20,14 @@ Plantilla.datosDescargadosNulos = {
 
 
 /**
- * Función que descarga la info MS Plantilla al llamar a una de sus rutas
+ * Función que descarga la info MS Piraguismo al llamar a una de sus rutas
  * @param {string} ruta Ruta a descargar
  * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
  */
-Plantilla.descargarRuta = async function (ruta, callBackFn) {
+Piraguismo.descargarRuta = async function (ruta, callBackFn) {
     let response = null
 
-    // Intento conectar con el microservicio Plantilla
+    // Intento conectar con el microservicio Piraguismo
     try {
         const url = Frontend.API_GATEWAY + ruta
         response = await fetch(url)
@@ -46,9 +46,9 @@ Plantilla.descargarRuta = async function (ruta, callBackFn) {
     }
 }
 
-Plantilla.recuperaUnaPersona = async function (idPersona, callBackFn) {
+Piraguismo.recuperaUnaPersona = async function (idPersona, callBackFn) {
     try {
-        const url = Frontend.API_GATEWAY + "/plantilla/getPorId/" + idPersona
+        const url = Frontend.API_GATEWAY + "/Piraguismo/getPorId/" + idPersona
         const response = await fetch(url);
         if (response) {
             const persona = await response.json()
@@ -68,9 +68,9 @@ function guardarPosicion(pos) {
 }
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "home" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "home" de MS Piraguismo
  */
-Plantilla.mostrarHome = function (datosDescargados) {
+Piraguismo.mostrarHome = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -80,13 +80,13 @@ Plantilla.mostrarHome = function (datosDescargados) {
     // Si datos descargados NO contiene el campo mensaje
     if (typeof datosDescargados.mensaje === "undefined") datosDescargados = this.datosDescargadosNulos
 
-    Frontend.Article.actualizar("Plantilla Home", datosDescargados.mensaje)
+    Frontend.Article.actualizar("Piraguismo Home", datosDescargados.mensaje)
 }
 
 /**
- * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Plantilla
+ * Función principal para mostrar los datos enviados por la ruta "acerca de" de MS Piraguismo
  */
-Plantilla.mostrarAcercaDe = function (datosDescargados) {
+Piraguismo.mostrarAcercaDe = function (datosDescargados) {
     // Si no se ha proporcionado valor para datosDescargados
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -109,19 +109,19 @@ Plantilla.mostrarAcercaDe = function (datosDescargados) {
     </ul>
     </div>
     `;
-    Frontend.Article.actualizar("Plantilla Acerca de", mensajeAMostrar)
+    Frontend.Article.actualizar("Piraguismo Acerca de", mensajeAMostrar)
 }
 
 /**
  * Funcion para mostrar lista de personas.
  */
-Plantilla.mostrarGetPersonas = function (datosDescargados) {
+Piraguismo.mostrarGetPersonas = function (datosDescargados) {
     let mensajeAMostrar = "<div>";
 
     for (let i = 0; i < datosDescargados.data.length; i++) {
         mensajeAMostrar += `
             <ul>
-            <li><a href="javascript:Plantilla.procesarGetPersonaId(${datosDescargados.data[i].ref['@ref'].id})">${datosDescargados.data[i].data.name}</a></li>
+            <li><a href="javascript:Piraguismo.procesarGetPersonaId(${datosDescargados.data[i].ref['@ref'].id})">${datosDescargados.data[i].data.name}</a></li>
             </ul>
         `;
     }
@@ -131,7 +131,7 @@ Plantilla.mostrarGetPersonas = function (datosDescargados) {
 }
 
 
-Plantilla.mostrarTodoPersona = function (persona) {
+Piraguismo.mostrarTodoPersona = function (persona) {
     let mensajeAMostrar = "<div>";
     mensajeAMostrar += `<table>
                             <thead>
@@ -164,7 +164,7 @@ Plantilla.mostrarTodoPersona = function (persona) {
 /**
  * Funcion para mostrar las personas ordenadas alfabeticamente.
  */
-Plantilla.mostrarGetPersonasOrd = function (datosDescargados) {
+Piraguismo.mostrarGetPersonasOrd = function (datosDescargados) {
     // Ordenar el arreglo de datos por nombre
     datosDescargados.data.sort((a, b) => a.data.name.localeCompare(b.data.name));
 
@@ -185,7 +185,7 @@ Plantilla.mostrarGetPersonasOrd = function (datosDescargados) {
 /**
  * Funcion para mostrar lista de personas.
  */
-Plantilla.mostrarGetTodosDatos = function (datosDescargados) {
+Piraguismo.mostrarGetTodosDatos = function (datosDescargados) {
     let mensajeAMostrar = "<div>";
     mensajeAMostrar += `<table>
                             <thead>
@@ -204,7 +204,7 @@ Plantilla.mostrarGetTodosDatos = function (datosDescargados) {
     for (let i = 0; i < datosDescargados.data.length; i++) {
         mensajeAMostrar += `
                         <tr>
-                        <td><a href="javascript:Plantilla.procesarGetTodosDatosOrd('${datosDescargados.data[i].data.name}')">${datosDescargados.data[i].data.name}</a></td>
+                        <td><a href="javascript:Piraguismo.procesarGetTodosDatosOrd('${datosDescargados.data[i].data.name}')">${datosDescargados.data[i].data.name}</a></td>
                             <td>${datosDescargados.data[i].data.birthdate.day}/${datosDescargados.data[i].data.birthdate.month}/${datosDescargados.data[i].data.birthdate.year}</td>
                             <td>${datosDescargados.data[i].data.country}</td>
                             <td>${datosDescargados.data[i].data.club}</td>
@@ -224,42 +224,61 @@ Plantilla.mostrarGetTodosDatos = function (datosDescargados) {
 /**
  * Función principal para responder al evento de elegir la opción "Home"
  */
-Plantilla.procesarHome = function () {
-    this.descargarRuta("/plantilla/", this.mostrarHome);
+Piraguismo.procesarHome = function () {
+    this.descargarRuta("/ms-piraguismo/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
-Plantilla.procesarAcercaDe = function () {
-    this.descargarRuta("/plantilla/acercade", this.mostrarAcercaDe);
+Piraguismo.procesarAcercaDe = function () {
+    this.descargarRuta("/ms-piraguismo/acercade", this.mostrarAcercaDe);
 }
 
 /**
  * Funcion para listar a las personas.
  */
-Plantilla.procesarGetPersonas = function() {
-    this.descargarRuta("/plantilla/getPersonas", this.mostrarGetPersonas);
+Piraguismo.procesarGetPersonas = function() {
+    this.descargarRuta("/ms-piraguismo/getPersonas", this.mostrarGetPersonas);
 }
 
 /**
  * Funcion para listar a los equipos.
  */
-Plantilla.procesarGetPersonasOrd = function() {
-    this.descargarRuta("/plantilla/getPersonas", this.mostrarGetPersonasOrd);
+Piraguismo.procesarGetPersonasOrd = function() {
+    this.descargarRuta("/ms-piraguismo/getPersonas", this.mostrarGetPersonasOrd);
 }
 
 /**
  * Funcion para listar todos los datos de cada persona.
  */
-Plantilla.procesarGetTodosDatos = function() {
-    this.descargarRuta("/plantilla/getPersonas", this.mostrarGetTodosDatos);
+Piraguismo.procesarGetTodosDatos = function() {
+    this.descargarRuta("/ms-piraguismo/getPersonas", this.mostrarGetTodosDatos);
 }
 
 /**
  * Funcion para listar todos los datos de cada persona.
  */
-Plantilla.procesarGetPersonaId = function (idPersona) {
+Piraguismo.procesarGetPersonaId = function (idPersona) {
     console.log(idPersona);
     this.recuperaUnaPersona(idPersona, this.mostrarTodoPersona);
+}
+
+Piraguismo.piraguismo = function () {
+
+    let msj = `<div> 
+    <a href="javascript:Piraguismo.procesarHome()" class="opcion-principal"
+            title="Llama a la ruta / del MS Piraguismo">Home</a>
+        <a href="javascript:Piraguismo.procesarGetPersonas()" class="opcion-principal"
+            title="Llama a la ruta /getPersonas del MS Piraguismo">Lista Personas</a>
+        <a href="javascript:Piraguismo.procesarGetPersonasOrd()" class="opcion-principal"
+            title="Llama a la ruta /getPersonas del MS Piraguismo">Lista Personas Ordenada</a>
+        <a href="javascript:Piraguismo.procesarGetTodosDatos()" class="opcion-principal"
+            title="Llama a la ruta /getPersonas del MS Piraguismo">Lista Datos</a>
+        <a href="javascript:Piraguismo.procesarAcercaDe()" class="opcion-principal"
+            title="Llama a la ruta /acercade del MS Piraguismo">Acerca de</a>
+    </div>`;
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Funcionalidades Piraguismo", msj)
 }
