@@ -47,5 +47,7 @@ https://trello.com/b/FfMoaOLo/tablero-pr4
 - HU 04- Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Javi
 <img src='imagenes\hu04.png'>
 
+- HU 06- Ver en una sola página la información de todos los autores de la aplicación al pulsar en el botón “Acerca de”
+<img src='imagenes\hu06.png'>
 
 ## Sprint Retrospective
