@@ -225,35 +225,35 @@ Piraguismo.mostrarGetTodosDatos = function (datosDescargados) {
  * Función principal para responder al evento de elegir la opción "Home"
  */
 Piraguismo.procesarHome = function () {
-    this.descargarRuta("/ms-piraguismo/", this.mostrarHome);
+    this.descargarRuta("/piraguismo/", this.mostrarHome);
 }
 
 /**
  * Función principal para responder al evento de elegir la opción "Acerca de"
  */
 Piraguismo.procesarAcercaDe = function () {
-    this.descargarRuta("/ms-piraguismo/acercade", this.mostrarAcercaDe);
+    this.descargarRuta("/piraguismo/acercade", this.mostrarAcercaDe);
 }
 
 /**
  * Funcion para listar a las personas.
  */
 Piraguismo.procesarGetPersonas = function() {
-    this.descargarRuta("/ms-piraguismo/getPersonas", this.mostrarGetPersonas);
+    this.descargarRuta("/piraguismo/getPersonas", this.mostrarGetPersonas);
 }
 
 /**
  * Funcion para listar a los equipos.
  */
 Piraguismo.procesarGetPersonasOrd = function() {
-    this.descargarRuta("/ms-piraguismo/getPersonas", this.mostrarGetPersonasOrd);
+    this.descargarRuta("/piraguismo/getPersonas", this.mostrarGetPersonasOrd);
 }
 
 /**
  * Funcion para listar todos los datos de cada persona.
  */
 Piraguismo.procesarGetTodosDatos = function() {
-    this.descargarRuta("/ms-piraguismo/getPersonas", this.mostrarGetTodosDatos);
+    this.descargarRuta("/piraguismo/getPersonas", this.mostrarGetTodosDatos);
 }
 
 /**
