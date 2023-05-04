@@ -172,22 +172,48 @@ describe("Frontend.imprimeNombres: ", function () {
         })
 })
 
-//mal
-/*
-describe("Frontend.nombresOrdenados: ", function () {
-    it("muestra todos los nombres de los jugadores/equipos de todos los deportes ordenados alfabéticamente",
+describe("Frontend.imprimeNombresPiraguismo: ", function () {
+    it("muestra todos los nombres de los jugadores/equipos de piragüismo",
         function () {
-            Frontend.mostrarNombres()
+            let personas = per.datos_personas
+            Frontend.imprimeNombresPiraguismo(personas)
 
-            expect(elementoTitulo.innerHTML).toBe("Nombres jugadores")
-            expect(elementoContenido.innerHTML.includes("Nombres Baloncesto")).toBeTrue() 
-            expect(elementoContenido.innerHTML.includes("Nombres Hockey")).toBeTrue()
-            expect(elementoContenido.innerHTML.includes("Nombres Fútbol Playa")).toBeTrue()
+            expect(elementoTitulo.innerHTML).toBe("Nombres jugadores/equipos:")
+            for (let i = 0; i < d.datos_personas.length; ++i) {
+                expect(elementoContenido.innerHTML.includes(personas[i].data.name)).toBeTrue()
+            }
+            
         })
 })
-*/
+
+describe("Frontend.juntarVectores: ", function () {
+    it("muestra todos los nombres de los jugadores/equipos de todos los deportes ordenados alfabéticamente",
+        function () {
+            let personas = per.datos_personas
+            Frontend.juntarVectores(personas)
+
+            expect(elementoTitulo.innerHTML).toBe("Nombres jugadores/equipos ordenados:")
+            for (let i = 0; i < d.datos_personas.length; ++i) {
+                expect(elementoContenido.innerHTML.includes(personas[i].data.nombre)).toBeTrue()
+            }
+        })
+})
+
+describe("Frontend.juntarVectoresPiraguismo: ", function () {
+    it("muestra todos los nombres de los jugadores/equipos de piragüismo ordenados alfabéticamente",
+        function () {
+            let personas = per.datos_personas
+            Frontend.juntarVectoresPiraguismo(personas)
+
+            expect(elementoTitulo.innerHTML).toBe("Nombres jugadores/equipos ordenados:")
+            for (let i = 0; i < d.datos_personas.length; ++i) {
+                expect(elementoContenido.innerHTML.includes(personas[i].data.name)).toBeTrue()
+            }
+        })
+})
 
 /*
 Las siguientes no se pueden probar porque dependen de funciones asíncronas:
 -mostrarTodosNombres()
+-nombresOrdenados()
 */

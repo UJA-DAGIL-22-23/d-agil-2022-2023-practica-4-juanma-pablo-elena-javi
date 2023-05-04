@@ -107,38 +107,38 @@ Frontend.imprimeNombresPiraguismo = function(vector) {
 }
 
   Frontend.nombresOrdenados = function() {
-    Baloncesto.recupera(Frontend.juntarVectores);
-    Hockey.recupera(Frontend.juntarVectores);
-    FutbolPlaya.recupera(Frontend.juntarVectores);
-    Piraguismo.recupera(Frontend.juntarVectoresPiraguismo);
-    Frontend.vectorNombres = []
+      Baloncesto.recupera(Frontend.juntarVectores);
+      Hockey.recupera(Frontend.juntarVectores);
+      FutbolPlaya.recupera(Frontend.juntarVectores);
+      Piraguismo.recupera(Frontend.juntarVectoresPiraguismo);
+      Frontend.vectorNombres = []
   }
   
   Frontend.juntarVectores = function(vector) {
 
-    vector.forEach(e => Frontend.vectorNombres.push(e.data.nombre))
+      vector.forEach(e => Frontend.vectorNombres.push(e.data.nombre))
 
-    Frontend.vectorNombres.sort((a, b) => a.localeCompare(b));
+      Frontend.vectorNombres.sort((a, b) => a.localeCompare(b));
 
-    let msj = `<div>`
-    Frontend.vectorNombres.forEach(e => msj += `<p> ${e} </p>`)
-    msj += `</div>`
+      let msj = `<div>`
+      Frontend.vectorNombres.forEach(e => msj += `<p> ${e} </p>`)
+      msj += `</div>`
 
-    Frontend.Article.actualizar("Nombres jugadores:", msj)
+      Frontend.Article.actualizar("Nombres jugadores/equipos ordenados:", msj)
     
   }
 
   Frontend.juntarVectoresPiraguismo = function(vector) {
 
-    vector.forEach(e => Frontend.vectorNombres.push(e.data.name))
+      vector.forEach(e => Frontend.vectorNombres.push(e.data.name))
 
-    Frontend.vectorNombres.sort((a, b) => a.localeCompare(b));
+      Frontend.vectorNombres.sort((a, b) => a.localeCompare(b));
 
-    let msj = `<div>`
-    Frontend.vectorNombres.forEach(e => msj += `<p> ${e} </p>`)
-    msj += `</div>`
+      let msj = `<div>`
+      Frontend.vectorNombres.forEach(e => msj += `<p> ${e} </p>`)
+      msj += `</div>`
 
-    Frontend.Article.actualizar("Nombres jugadores:", msj)
+      Frontend.Article.actualizar("Nombres jugadores/equipos ordenados:", msj)
     
   }
 
