@@ -12,6 +12,68 @@ const datosPrueba = {
     fecha: "00/00/0000"
 }
 
+// Preparo los datos
+let per = {
+    datos_personas: [
+        {
+            ref: {
+                "@ref": {
+                    id: "ref persona 1"
+                }
+            },
+            data: {
+                "nombre": "Elena",
+                "apellidos": "Carmona Vallecillo",
+                "fechaNacimiento": {
+                "dia": 6,
+                "mes": 10,
+                "anio": 2002
+                },
+                "pais": "España",
+                "aniosCompeticion": [
+                2017,
+                2018,
+                2020,
+                2022
+                ],
+                "numero_campeonatos_ganados": 2,
+                "nombre_equipo": "Joventut",
+                "categoria": "femenina",
+                "altura": 1.85
+            }
+        },
+        {
+            ref: {
+                "@ref": {
+                    id: "ref persona 2"
+                }
+            },
+            data: {
+                "nombre": "Fernando",
+                "apellidos": "Pérez Sánchez",
+                "fechaNacimiento": {
+                "dia": 25,
+                "mes": 3,
+                "anio": 1969
+                },
+                "pais": "España",
+                "aniosCompeticion": [
+                1980,
+                1985,
+                1990
+                ],
+                "numero_campeonatos_ganados": 1,
+                "nombre_equipo": "Unicaja",
+                "categoria": "masculina",
+                "altura": 1.95
+            }
+        },
+
+    ]
+}
+
+let pp = { data: per }
+
 // SPECS para Jasmine
 describe("Frontend.Article.actualizar: ", function () {
     const elementoTitulo = document.getElementById(Frontend.ID_SECCION_PRINCIPAL_TITULO)
@@ -96,19 +158,22 @@ describe("Frontend.mostrarAcercaDe: ", function () {
         })
 })
 
-describe("Frontend.mostrarNombres: ", function () {
-    it("muestra los botones de los deportes, que mostrarán los nombres de los jugadores/equipos",
+describe("Frontend.imprimeNombres: ", function () {
+    it("muestra todos los nombres de los jugadores/equipos de todos los deportes",
         function () {
-            Frontend.mostrarNombres()
+            let personas = per.datos_personas
+            Frontend.imprimeNombres(personas)
 
-            expect(elementoTitulo.innerHTML).toBe("Nombres jugadores/equipos")
-            expect(elementoContenido.innerHTML.includes("Nombres Baloncesto")).toBeTrue() 
-            expect(elementoContenido.innerHTML.includes("Nombres Hockey")).toBeTrue()
-            expect(elementoContenido.innerHTML.includes("Nombres Fútbol Playa")).toBeTrue()
+            expect(elementoTitulo.innerHTML).toBe("Nombres jugadores/equipos:")
+            for (let i = 0; i < d.datos_personas.length; ++i) {
+                expect(elementoContenido.innerHTML.includes(personas[i].data.nombre)).toBeTrue()
+            }
+            
         })
 })
 
 //mal
+/*
 describe("Frontend.nombresOrdenados: ", function () {
     it("muestra todos los nombres de los jugadores/equipos de todos los deportes ordenados alfabéticamente",
         function () {
@@ -120,3 +185,9 @@ describe("Frontend.nombresOrdenados: ", function () {
             expect(elementoContenido.innerHTML.includes("Nombres Fútbol Playa")).toBeTrue()
         })
 })
+*/
+
+/*
+Las siguientes no se pueden probar porque dependen de funciones asíncronas:
+-mostrarTodosNombres()
+*/

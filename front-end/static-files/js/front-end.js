@@ -78,21 +78,33 @@ Frontend.mostrarAcercaDe = function(datosDescargados){
    Frontend.Article.actualizar("Acerca De", Frontend.AcercaDeMsj);
 }
 
-Frontend.mostrarNombres = function() {
-    let msj = `<div> 
-    <a href="javascript:Baloncesto.mostrarNombresJugadores()" class="opcion-principal"
-        title="Muestra los nombres de todos los jugadores">Nombres Baloncesto</a>
-    <a href="javascript:Hockey.procesarlistaJugadoresEquipos()" class="opcion-principal"
-        title="Muestra los nombres de todos los jugadores">Nombres Hockey</a>
-    <a href="javascript:FutbolPlaya.mostrarNombresEquipos()" class="opcion-principal"
-        title="Muestra los nombres de todos los jugadores">Nombres Fútbol Playa</a>
-    <a href="javascript:Piraguismo.procesarGetPersonas()" class="opcion-principal"
-        title="Muestra los nombres de todos los jugadores">Nombres Piraguismo</a>
-    </div>`;
+Frontend.mostrarTodosNombres = function() {
+    Frontend.NombresMsj=""
+    Baloncesto.recupera(Frontend.imprimeNombres);
+    Hockey.recupera(Frontend.imprimeNombres);
+    FutbolPlaya.recupera(Frontend.imprimeNombres);
+    Piraguismo.recupera(Frontend.imprimeNombresPiraguismo);
+}
 
-    // Borro toda la info de Article y la sustituyo por la que me interesa
-    Frontend.Article.actualizar("Nombres jugadores/equipos", msj)
-  }
+Frontend.imprimeNombres = function(vector) {
+
+    let msj = `<div>`
+    vector.forEach(e => msj += `<p> ${e.data.nombre} </p>`)
+    msj += `</div>`
+    
+    Frontend.NombresMsj += msj;
+    Frontend.Article.actualizar("Nombres jugadores/equipos:", Frontend.NombresMsj)
+}
+
+Frontend.imprimeNombresPiraguismo = function(vector) {
+
+    let msj = `<div>`
+    vector.forEach(e => msj += `<p> ${e.data.name} </p>`)
+    msj += `</div>`
+    
+    Frontend.NombresMsj += msj;
+    Frontend.Article.actualizar("Nombres jugadores/equipos:", Frontend.NombresMsj)
+}
 
   Frontend.nombresOrdenados = function() {
     Baloncesto.recupera(Frontend.juntarVectores);
@@ -144,33 +156,7 @@ Frontend.contraste = function() {
     }
   }
 
-  Frontend.mostrarTodosNombres = function() {
-    Frontend.NombresMsj=""
-    Baloncesto.recupera(Frontend.imprimeNombres);
-    Hockey.recupera(Frontend.imprimeNombres);
-    FutbolPlaya.recupera(Frontend.imprimeNombres);
-    Piraguismo.recupera(Frontend.imprimeNombresPiraguismo);
-  }
-
-  Frontend.imprimeNombres = function(vector) {
-
-    let msj = `<div>`
-    vector.forEach(e => msj += `<p> ${e.data.nombre} </p>`)
-    msj += `</div>`
-    
-    Frontend.NombresMsj += msj;
-    Frontend.Article.actualizar("Nombres jugadores:", Frontend.NombresMsj)
-  }
-
-  Frontend.imprimeNombresPiraguismo = function(vector) {
-
-    let msj = `<div>`
-    vector.forEach(e => msj += `<p> ${e.data.name} </p>`)
-    msj += `</div>`
-    
-    Frontend.NombresMsj += msj;
-    Frontend.Article.actualizar("Nombres jugadores:", Frontend.NombresMsj)
-  }
+  
 
 
 
