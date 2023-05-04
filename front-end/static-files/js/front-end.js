@@ -143,7 +143,6 @@ Frontend.imprimeNombresPiraguismo = function(vector) {
   }
 
 let contrasteValor = false;
-
 Frontend.contraste = function() {
     if(contrasteValor == false){
         const body = document.querySelector('body');

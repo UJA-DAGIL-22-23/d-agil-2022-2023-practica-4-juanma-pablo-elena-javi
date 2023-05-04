@@ -213,7 +213,8 @@ describe("Frontend.juntarVectoresPiraguismo: ", function () {
 })
 
 /*
-Las siguientes no se pueden probar porque dependen de funciones asíncronas:
+Las siguientes funciones no se pueden probar porque dependen de funciones asíncronas:
 -mostrarTodosNombres()
 -nombresOrdenados()
+-contraste()
 */
