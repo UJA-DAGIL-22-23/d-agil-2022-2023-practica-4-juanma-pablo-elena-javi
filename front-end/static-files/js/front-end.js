@@ -86,6 +86,8 @@ Frontend.mostrarNombres = function() {
         title="Muestra los nombres de todos los jugadores">Nombres Hockey</a>
     <a href="javascript:FutbolPlaya.mostrarNombresEquipos()" class="opcion-principal"
         title="Muestra los nombres de todos los jugadores">Nombres Fútbol Playa</a>
+    <a href="javascript:Piraguismo.procesarGetPersonas()" class="opcion-principal"
+        title="Muestra los nombres de todos los jugadores">Nombres Piraguismo</a>
     </div>`;
 
     // Borro toda la info de Article y la sustituyo por la que me interesa

@@ -121,7 +121,7 @@ Piraguismo.mostrarGetPersonas = function (datosDescargados) {
     for (let i = 0; i < datosDescargados.data.length; i++) {
         mensajeAMostrar += `
             <ul>
-            <li><a href="javascript:Piraguismo.procesarGetPersonaId(${datosDescargados.data[i].ref['@ref'].id})">${datosDescargados.data[i].data.name}</a></li>
+            <li>${datosDescargados.data[i].data.name}</li>
             </ul>
         `;
     }
