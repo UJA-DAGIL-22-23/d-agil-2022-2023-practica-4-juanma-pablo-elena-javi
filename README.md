@@ -50,4 +50,7 @@ https://trello.com/b/FfMoaOLo/tablero-pr4
 - HU 06- Ver en una sola página la información de todos los autores de la aplicación al pulsar en el botón “Acerca de”
 <img src='imagenes\hu06.png'>
 
+- HU 07- Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.
+<img src='imagenes\hu07.png'>
+
 ## Sprint Retrospective
