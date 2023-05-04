@@ -101,13 +101,14 @@ describe("Frontend.mostrarNombres: ", function () {
         function () {
             Frontend.mostrarNombres()
 
-            expect(elementoTitulo.innerHTML).toBe("Nombres jugadores")
+            expect(elementoTitulo.innerHTML).toBe("Nombres jugadores/equipos")
             expect(elementoContenido.innerHTML.includes("Nombres Baloncesto")).toBeTrue() 
             expect(elementoContenido.innerHTML.includes("Nombres Hockey")).toBeTrue()
             expect(elementoContenido.innerHTML.includes("Nombres Fútbol Playa")).toBeTrue()
         })
 })
 
+//mal
 describe("Frontend.nombresOrdenados: ", function () {
     it("muestra todos los nombres de los jugadores/equipos de todos los deportes ordenados alfabéticamente",
         function () {

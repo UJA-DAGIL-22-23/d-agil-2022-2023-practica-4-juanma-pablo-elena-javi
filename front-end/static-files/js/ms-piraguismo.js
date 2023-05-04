@@ -282,3 +282,31 @@ Piraguismo.piraguismo = function () {
     // Borro toda la info de Article y la sustituyo por la que me interesa
     Frontend.Article.actualizar("Funcionalidades Piraguismo", msj)
 }
+
+/**
+ * Función que recuperar todas las personas llamando al MS Personas
+ * @param {función} callBackFn Función a la que se llamará una vez recibidos los datos.
+ */
+
+Piraguismo.recupera = async function (callBackFn) {
+    let response = null
+
+    // Intento conectar con el microservicio personas
+    try {
+        const url = Frontend.API_GATEWAY + "/piraguismo/getPersonas"
+        response = await fetch(url)
+
+    } catch (error) {
+        alert("Error: No se han podido acceder al API Gateway")
+        console.error(error)
+        //throw error
+    }
+
+    // Muestro todas las persoans que se han descargado
+    let vectorPersonas = null
+    if (response) {
+        vectorPersonas = await response.json()
+        callBackFn(vectorPersonas.data)
+    }
+}
+
