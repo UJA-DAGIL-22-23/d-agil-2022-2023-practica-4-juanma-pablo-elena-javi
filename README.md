@@ -53,4 +53,7 @@ https://trello.com/b/FfMoaOLo/tablero-pr4
 - HU 07- Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.
 <img src='imagenes\hu07.png'>
 
+- HU 08- Ver un listado solo con los nombres de todos los jugadores/equipos ordenados alfabéticamente de todos los deportes incluidos en la app.
+<img src='imagenes\hu08.png'>
+
 ## Sprint Retrospective
