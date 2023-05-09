@@ -53,9 +53,11 @@ https://trello.com/b/FfMoaOLo/tablero-pr4
 - HU 07- Ver un listado solo con los nombres de todos los jugadores/equipos de todos los deportes incluidos en la app.
 <img src='imagenes\hu07.png'>
 
-
 - HU 08- Ver un listado solo con los nombres de todos los jugadores/equipos ordenados alfabéticamente de todos los deportes incluidos en la app.
 <img src='imagenes\hu08.png'>
+
+- HU 09- Mostrar el nombre y el deporte de todos los jugadores/equipos que contengan una determinada cadena introducida por el usuario.
+<img src='imagenes\hu09.png'>
 
 - HU 10- Modificar la visualización de la app con un modo ALTO CONTRASTE
 <img src='imagenes\hu10.png'>
