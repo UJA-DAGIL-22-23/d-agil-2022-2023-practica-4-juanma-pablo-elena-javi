@@ -153,12 +153,4 @@ Frontend.contraste = function() {
         body.setAttribute("style", "background-color: #ffffff; color: #000000;")
         contrasteValor = false;
     }
-  }
-
-  
-
-
-
-  
-  
-  
+}
