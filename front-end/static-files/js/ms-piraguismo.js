@@ -306,7 +306,7 @@ Piraguismo.recupera = async function (callBackFn) {
     let vectorPersonas = null
     if (response) {
         vectorPersonas = await response.json()
-        callBackFn(vectorPersonas.data)
+        callBackFn(vectorPersonas.data, "Piragüismo")
     }
 }
 

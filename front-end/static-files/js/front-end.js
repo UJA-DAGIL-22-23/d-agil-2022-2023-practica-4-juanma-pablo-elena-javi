@@ -216,10 +216,10 @@ Frontend.juntarVectores2 = function(vector, deporte) {
   
 }
 
-Frontend.juntarVectoresPiraguismo2 = function(vector) {
+Frontend.juntarVectoresPiraguismo2 = function(vector, deporte) {
 
     vector.forEach(e => Frontend.vectorNombres.push(e.data.name))
     vector.forEach(e => Frontend.vector.nombres.push(e.data.name))
-    vector.forEach(e => Frontend.vector.deporte.push(Frontend.deporte))  
+    vector.forEach(e => Frontend.vector.deporte.push(deporte))  
   
 }
