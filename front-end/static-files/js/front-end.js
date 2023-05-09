@@ -13,6 +13,8 @@ let msj = ``;
 Frontend.AcercaDeMsj= ""
 Frontend.NombresMsj= ""
 Frontend.vectorNombres = []
+Frontend.vector = {nombres: [], deporte: []}
+Frontend.deporte = ""
 
 /// Dirección del MS que funciona como API_GATEWAY
 Frontend.API_GATEWAY = "http://localhost:8001"
@@ -116,7 +118,7 @@ Frontend.imprimeNombresPiraguismo = function(vector) {
   
   Frontend.juntarVectores = function(vector) {
 
-      vector.forEach(e => Frontend.vectorNombres.push(e.data.nombre))
+      vector.forEach(e => Frontend.vectorNombres.push(e.data.nombre))  
 
       Frontend.vectorNombres.sort((a, b) => a.localeCompare(b));
 
@@ -130,7 +132,7 @@ Frontend.imprimeNombresPiraguismo = function(vector) {
 
   Frontend.juntarVectoresPiraguismo = function(vector) {
 
-      vector.forEach(e => Frontend.vectorNombres.push(e.data.name))
+      vector.forEach(e => Frontend.vectorNombres.push(e.data.name)) 
 
       Frontend.vectorNombres.sort((a, b) => a.localeCompare(b));
 
@@ -153,4 +155,71 @@ Frontend.contraste = function() {
         body.setAttribute("style", "background-color: #ffffff; color: #000000;")
         contrasteValor = false;
     }
+}
+
+Frontend.buscarNombres = function(){
+
+    Frontend.deporte = "Baloncesto";
+    Baloncesto.recupera(Frontend.juntarVectores2);
+    Frontend.deporte = "Hockey";
+    Hockey.recupera(Frontend.juntarVectores2);
+    Frontend.deporte = "Fútbol Playa";
+    FutbolPlaya.recupera(Frontend.juntarVectores2);
+    Frontend.deporte = "Piragüismo";
+    Piraguismo.recupera(Frontend.juntarVectoresPiraguismo2);
+    Frontend.vectorNombres = []
+    Frontend.vector.nombres = []
+    Frontend.vector.deporte = []
+
+    let msj = `<div>
+    <p> Buscar jugadores cuyo nombre incluye: </p>
+    <input type="text" id="id_Texto">
+    <button onclick="javascript:Frontend.incluyeNombre();">Buscar</button>
+    </div>`;
+
+    Frontend.Article.actualizar("Buscar jugadores por nombre", msj)
+}
+
+
+Frontend.incluyeNombre = function (texto) {
+    // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.
+    // Si no, uso el valor que se ha pasado por parámetro.
+    if( typeof document.getElementById("id_Texto") != "undefined" && document.getElementById("id_Texto")!=null ) texto=document.getElementById("id_Texto").value
+    let msj = "";
+
+    for(var i=0; i < Frontend.vector.nombres.length; i++){
+        let nombre=Frontend.vector.nombres[i];
+        let deporte=Frontend.vector.deporte[i];
+        if(nombre.includes(texto)){
+            msj += `<div> 
+            <h1> Jugador </h1>
+            <p> Nombre del jugador: ${nombre} </p>
+            <p> Deporte del jugador: ${deporte} </p>
+            </div>`;
+        }
+    }
+
+    // Borro toda la info de Article y la sustituyo por la que me interesa
+    Frontend.Article.actualizar("Jugadores cuyo nombre contiene '" + texto + "'", msj)
+
+}
+/**
+ * Vuelca en Frontend.vector los datos de los distintos deportes que han sido encontrados.
+ * @param {*} vector VEctor con los datos de los deportistas/equipos
+ * @param {*} deporte Nombre del deporte que estamos procesando
+ */
+Frontend.juntarVectores2 = function(vector, deporte) {
+
+    vector.forEach(e => Frontend.vectorNombres.push(e.data.nombre))
+    vector.forEach(e => Frontend.vector.nombres.push(e.data.nombre))
+    vector.forEach(e => Frontend.vector.deporte.push(deporte))  
+  
+}
+
+Frontend.juntarVectoresPiraguismo2 = function(vector) {
+
+    vector.forEach(e => Frontend.vectorNombres.push(e.data.name))
+    vector.forEach(e => Frontend.vector.nombres.push(e.data.name))
+    vector.forEach(e => Frontend.vector.deporte.push(Frontend.deporte))  
+  
 }
