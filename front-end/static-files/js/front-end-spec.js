@@ -212,9 +212,34 @@ describe("Frontend.juntarVectoresPiraguismo: ", function () {
         })
 })
 
+describe("Frontend.buscarNombres: ", function () {
+    it("muestra como contenido Buscar jugadores cuyo nombre incluye",
+        function () {
+            Frontend.buscarNombres()
+            expect(elementoTitulo.innerHTML).toBe("Buscar jugadores por nombre")
+            expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyo nombre incluye")).toBeTrue()  
+        })
+        it("no muestra como contenido Buscar jugadores cuyo nombre tiene",
+        function () {
+            Frontend.buscarNombres()
+            expect(elementoContenido.innerHTML.includes("Buscar jugadores cuyo nombre tiene")).toBeFalse()
+        })
+})
+
+describe("Frontend.incluyeNombre: ", function () {
+    it("muestra los datos de un jugador cuyo nombre coincida con la búsqueda",
+        function () { 
+            let texto = "Elena"
+            Frontend.incluyeNombre(texto)
+            expect(elementoTitulo.innerHTML.includes("Jugadores cuyo nombre contiene")).toBeTrue()
+        })    
+})
+
 /*
-Las siguientes funciones no se pueden probar porque dependen de funciones asíncronas:
+Las siguientes funciones no se pueden probar porque dependen de funciones asíncronas, etc:
 -mostrarTodosNombres()
 -nombresOrdenados()
 -contraste()
+-juntarVectores2()
+-juntarVectoresPiraguismo2()
 */
