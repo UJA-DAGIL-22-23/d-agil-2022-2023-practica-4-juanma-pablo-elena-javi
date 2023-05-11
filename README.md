@@ -17,6 +17,7 @@ e-mail: pgm00057@red.ujaen.es
 https://trello.com/b/FfMoaOLo/tablero-pr4
 
 # Sprint Review
+Hemos conseguido hacer todas las historias de usuario en este incremento.
 
 ## HU implementadas
 - HU 01-Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Elena
@@ -66,11 +67,14 @@ https://trello.com/b/FfMoaOLo/tablero-pr4
 
 ## Sprint Retrospective
 - **Cosas que hicimos bien:**
-Un buen ritmo de trabajo, que nos permitió acabar antes de tiempo todas las HU planteadas.
-Trabajo juntos en físico, y en parejas que nos permitió arreglar los fallos entre todos.
-Buena división del trabajo propuesto.
+Llevamos un buen ritmo de trabajo, lo que nos permitió acabar antes de tiempo todas las HU planteadas.
+Trabajo juntos en físico y en parejas, lo que nos permitió detectar y arreglar los fallos entre todos.
+Buena división del trabajo propuesto, por lo que cada uno tuvo la misma carga de trabajo.
 
 - **Cosas a mejorar:**
-Trabajar únicamente en la rama main, lo que nos causó problemas.
-No actualizar al inicio los archivos ignore, lo que nos retrasó al comienzo.
-No generalizar los nombres de las variables en las bases de datos, lo que hizo que tuviesemos que crear funciones diferentes.
+Trabajar cada uno en una rama personal, en vez de únicamente en la rama main, ya que esto nos causó problemas al estar trabajando todos a la vez en la misma rama.
+Actualizar al inicio los archivos ignore, ya que al no ignorarlos al principio, nos retrasó el trabajo.
+Generalizar los nombres de las variables en las bases de datos, ya que al tener cada uno nombres distintos, hizo que tuviesemos que crear funciones diferentes para que concordasen.
+
+- **Compromisos para el siguiente Sprint**: 
+Si hubiese un siguiente Sprint, los miembros del equipo nos comprometeríamos a trabajar cada uno es su rama y una vez que funcione todo, juntarlo en la rama principal.
