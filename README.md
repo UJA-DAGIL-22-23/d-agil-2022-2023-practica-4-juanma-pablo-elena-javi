@@ -64,3 +64,12 @@ https://trello.com/b/FfMoaOLo/tablero-pr4
 
 
 ## Sprint Retrospective
+- **Cosas que hicimos bien:**
+Un buen ritmo de trabajo, que nos permitió acabar antes de tiempo todas las HU planteadas
+Trabajo juntos en físico, y en parejas que nos permitió arreglar los fallos entre todos
+Buena división del trabajo propuesto
+
+- **Cosas a mejorar:**
+Trabajar únicamente en la rama main, lo que nos causó problemas
+No actualizar al inicio los archivos ignore, lo que nos retrasó al comienzo
+No generalizar los nombres de las variables en las bases de datos, lo que hizo que tuviesemos que crear funciones diferentes
