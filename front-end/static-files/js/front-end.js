@@ -45,6 +45,9 @@ Frontend.Article.actualizar = function (titulo, contenido) {
     return this;
 }
 
+/**
+ * Llama a las rutas de cada deporte para descragar los datos de Acerca De
+ */
 Frontend.mostrarTodoAcercaDe = function() {
     Frontend.AcercaDeMsj=""
     Baloncesto.descargarRuta("/baloncesto/acercade", this.mostrarAcercaDe)
@@ -53,6 +56,10 @@ Frontend.mostrarTodoAcercaDe = function() {
     Piraguismo.descargarRuta("/piraguismo/acercade", this.mostrarAcercaDe)
   }
 
+  /**
+   * Muestra los datos de Acerca De de todos los miembros
+   * @param {*} datosDescargados  datos de cada uno
+   */
 Frontend.mostrarAcercaDe = function(datosDescargados){
     datosDescargados = datosDescargados || this.datosDescargadosNulos
 
@@ -80,6 +87,9 @@ Frontend.mostrarAcercaDe = function(datosDescargados){
    Frontend.Article.actualizar("Acerca De", Frontend.AcercaDeMsj);
 }
 
+/**
+ * Llama a la función recupera de cada deporte 
+ */
 Frontend.mostrarTodosNombres = function() {
     Frontend.NombresMsj=""
     Baloncesto.recupera(Frontend.imprimeNombres);
@@ -88,6 +98,10 @@ Frontend.mostrarTodosNombres = function() {
     Piraguismo.recupera(Frontend.imprimeNombresPiraguismo);
 }
 
+/**
+ * Muestra los nombres de todos los jugadores/equipos de todos los deportes
+ * @param {*} vector vector con los datos
+ */
 Frontend.imprimeNombres = function(vector) {
 
     let msj = `<div>`
@@ -98,6 +112,10 @@ Frontend.imprimeNombres = function(vector) {
     Frontend.Article.actualizar("Nombres jugadores/equipos:", Frontend.NombresMsj)
 }
 
+/**
+ * Muestra los nombres de todos los jugadores/equipos del deporte piragüismo
+ * @param {*} vector vector con los datos
+ */
 Frontend.imprimeNombresPiraguismo = function(vector) {
 
     let msj = `<div>`
@@ -108,6 +126,9 @@ Frontend.imprimeNombresPiraguismo = function(vector) {
     Frontend.Article.actualizar("Nombres jugadores/equipos:", Frontend.NombresMsj)
 }
 
+/**
+ * Llama a la función recupera de cada deporte
+ */
   Frontend.nombresOrdenados = function() {
       Baloncesto.recupera(Frontend.juntarVectores);
       Hockey.recupera(Frontend.juntarVectores);
@@ -116,6 +137,10 @@ Frontend.imprimeNombresPiraguismo = function(vector) {
       Frontend.vectorNombres = []
   }
   
+  /**
+   * Junta en un vector todos los nombres de los jugadores de todos los deportes
+   * @param {*} vector vector con los datos
+   */
   Frontend.juntarVectores = function(vector) {
 
       vector.forEach(e => Frontend.vectorNombres.push(e.data.nombre))  
@@ -130,6 +155,10 @@ Frontend.imprimeNombresPiraguismo = function(vector) {
     
   }
 
+  /**
+   * Junta en un vector todos los nombres de los jugadores del deporte piragüismo
+   * @param {*} vector vector con los datos
+   */
   Frontend.juntarVectoresPiraguismo = function(vector) {
 
       vector.forEach(e => Frontend.vectorNombres.push(e.data.name)) 
@@ -145,6 +174,9 @@ Frontend.imprimeNombresPiraguismo = function(vector) {
   }
 
 let contrasteValor = false;
+/**
+ * Cambia el contraste de la aplicación
+ */
 Frontend.contraste = function() {
     if(contrasteValor == false){
         const body = document.querySelector('body');
@@ -157,6 +189,9 @@ Frontend.contraste = function() {
     }
 }
 
+/**
+ * Llama a la función recupera de cada vector y muestra un campo de búsqueda
+ */
 Frontend.buscarNombres = function(){
 
     Frontend.deporte = "Baloncesto";
@@ -180,7 +215,10 @@ Frontend.buscarNombres = function(){
     Frontend.Article.actualizar("Buscar jugadores por nombre", msj)
 }
 
-
+/**
+ * Muestra los nombres de los jugadores cuyo nombre coincida con el texto del campo de búsqueda
+ * @param {*} texto texto a comparar
+ */
 Frontend.incluyeNombre = function (texto) {
     // Si está definido el campo de búsqueda, uso el valor que ha introducido el usuario.
     // Si no, uso el valor que se ha pasado por parámetro.
@@ -205,7 +243,7 @@ Frontend.incluyeNombre = function (texto) {
 }
 /**
  * Vuelca en Frontend.vector los datos de los distintos deportes que han sido encontrados.
- * @param {*} vector VEctor con los datos de los deportistas/equipos
+ * @param {*} vector Vector con los datos de los deportistas/equipos
  * @param {*} deporte Nombre del deporte que estamos procesando
  */
 Frontend.juntarVectores2 = function(vector, deporte) {
@@ -216,6 +254,11 @@ Frontend.juntarVectores2 = function(vector, deporte) {
   
 }
 
+/**
+ * Vuelca en Frontend.vector los datos de piragüismo que han sido encontrados.
+ * @param {*} vector Vector con los datos de los deportistas/equipos
+ * @param {*} deporte Nombre del deporte que estamos procesando
+ */
 Frontend.juntarVectoresPiraguismo2 = function(vector, deporte) {
 
     vector.forEach(e => Frontend.vectorNombres.push(e.data.name))
