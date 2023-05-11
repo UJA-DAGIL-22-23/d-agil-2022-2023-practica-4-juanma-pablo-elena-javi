@@ -16,8 +16,10 @@ e-mail: pgm00057@red.ujaen.es
 ## Tablero trello
 https://trello.com/b/FfMoaOLo/tablero-pr4
 
+## Incremento sprint_v1_11-05-2023
+
 # Sprint Review
-Hemos conseguido hacer todas las historias de usuario en este incremento.
+Hemos conseguido hacer todas las historias de usuario planteadas en este incremento.
 
 ## HU implementadas
 - HU 01-Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Elena
