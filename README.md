@@ -33,6 +33,7 @@ https://trello.com/b/FfMoaOLo/tablero-pr4
 <img src='imagenes\trello_inicial.png'>
 
 ## Trello final
+<img src='imagenes\trello_final.png'>
 
 ## Historias de usuario 
 - HU 01-Ofrecer en la aplicación toda la funcionalidad de la práctica individual creada por el/la estudiante Elena
@@ -65,11 +66,11 @@ https://trello.com/b/FfMoaOLo/tablero-pr4
 
 ## Sprint Retrospective
 - **Cosas que hicimos bien:**
-Un buen ritmo de trabajo, que nos permitió acabar antes de tiempo todas las HU planteadas
-Trabajo juntos en físico, y en parejas que nos permitió arreglar los fallos entre todos
-Buena división del trabajo propuesto
+Un buen ritmo de trabajo, que nos permitió acabar antes de tiempo todas las HU planteadas.
+Trabajo juntos en físico, y en parejas que nos permitió arreglar los fallos entre todos.
+Buena división del trabajo propuesto.
 
 - **Cosas a mejorar:**
-Trabajar únicamente en la rama main, lo que nos causó problemas
-No actualizar al inicio los archivos ignore, lo que nos retrasó al comienzo
-No generalizar los nombres de las variables en las bases de datos, lo que hizo que tuviesemos que crear funciones diferentes
+Trabajar únicamente en la rama main, lo que nos causó problemas.
+No actualizar al inicio los archivos ignore, lo que nos retrasó al comienzo.
+No generalizar los nombres de las variables en las bases de datos, lo que hizo que tuviesemos que crear funciones diferentes.
